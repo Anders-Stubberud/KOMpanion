@@ -1,0 +1,30 @@
+/*Mapbox.tsx*/
+.mapbox 
+{
+    border-width: 4px;
+    border-color: black;
+    border-style: solid;
+    width: 50vw;
+    height: 50vh;
+    @media (max-width: 600px) {
+        width: 80vw;
+        height: 35vw;
+    }
+}
+/*Header.tsx*/
+.header 
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.change
+{
+    position: relative;
+    left: 65vw;
+    margin: 0.75%;
+    border: none;
+    font-size: x-large;
+    font-family: monospace;
+    font-weight: bold;
+}
