@@ -1,0 +1,28 @@
+.main 
+{
+    position: relative;
+    margin-top: 1vw;
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    border-width: 3px;
+    border-color: red;
+}
+
+.searchbar, .radius, .enter 
+{
+    padding: 1vw;
+    margin: 0 1vw;
+    @media (max-width: 600px) 
+    {
+        display: block;
+    }
+}
+.searchbar 
+{
+    width: 15w;
+}
+.radius
+{
+    width: 5vw;
+}

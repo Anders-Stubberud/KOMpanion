@@ -1,7 +1,9 @@
-import '../sheets/index.css';
+
+import '../sheets/Header.css';
 import { change } from '../utils/change';
 
-function Header() {
+function Header() 
+{
     return (
         <div className='header'>
             <button onClick={change} className='change' title='change theme'>change</button>

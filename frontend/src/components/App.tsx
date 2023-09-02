@@ -1,17 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
-import '../sheets/App.css';
 import Mapbox from './Mapbox';
 import Header from './Header';
+import Search from './Search'
+import List from './List'
 
-function App() {
+function App() 
+{
   return (
     <div>
       <Header></Header>
       <hr></hr>
-      <div className='mapboxcontainer'>
-        <Mapbox></Mapbox>
-      </div>
+      <Mapbox></Mapbox>
+      <Search></Search>
+      <List></List>
     </div>
   );
 }

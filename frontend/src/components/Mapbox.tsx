@@ -1,9 +1,12 @@
 import React from 'react';
-import '../sheets/index.css';
+import '../sheets/MapBox.css';
 
-function Mapbox() {
+function Mapbox() 
+{
     return (
-        <div className="mapbox"></div>
+        <div className='mapboxcontainer'>
+            <div className="mapbox"></div>
+        </div>
     );
 }
 
