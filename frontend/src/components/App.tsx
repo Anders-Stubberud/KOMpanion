@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import Mapbox from './Mapbox';
 import Header from './Header';
 import Search from './Search'
-import List from './List'
+import List from '../hooks/List'
 
 function App() 
 {

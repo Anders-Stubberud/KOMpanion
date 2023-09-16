@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
 }
-.change
+.change, .counter
 {
     position: relative;
     left: 65vw;
