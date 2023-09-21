@@ -1,25 +1,9 @@
-body 
-{
-    background-color: whitesmoke;
-}
-.mapboxcontainer 
-{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
 .mapbox 
 {
     border-width: 2px;
     border-color: black;
     border-style: solid;
-    width: 50vw;
-    height: 50vh;
-    @media (max-width: 600px) 
-    {
-        width: 90vw;
-        height: 35vh;
-    }
+    width: 80vw;
+    margin-right: 1vw;
+    margin-left: -1px;
 }

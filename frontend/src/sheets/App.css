@@ -1,0 +1,6 @@
+.mapbox-list
+{
+    display: flex;
+    flex-direction: row;
+    height: 70vh;
+}
