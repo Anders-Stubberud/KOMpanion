@@ -39,8 +39,10 @@ function Header()
                 <h2>KOMpanion</h2>
                 <p><em>KOM analyzer</em></p>
             </div>  
-            <button onClick={handleNavigate} className='aboutButton'><span>About</span></button>
-            <button onClick={handleDarkmode}  className='darkmodeButton'>darkmode</button>
+            <div className='buttons'>
+                <button onClick={handleNavigate} className='aboutButton'><span>About</span></button>
+                <button onClick={handleDarkmode}  className='darkmodeButton'>darkmode</button>
+            </div>
         </div>
     );
 }

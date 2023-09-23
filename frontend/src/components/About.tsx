@@ -6,7 +6,6 @@ function About()
     return (
         <div>
             <Header></Header>
-            <hr></hr>
         </div>
     );
 }

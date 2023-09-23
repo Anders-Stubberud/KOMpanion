@@ -3,7 +3,7 @@
     border-width: 2px;
     border-color: black;
     border-style: solid;
-    width: 69vw;
-    margin-right: 1vw;
+    margin-right: 0vw;
     margin-left: -1px;
+    flex-grow: 1;
 }

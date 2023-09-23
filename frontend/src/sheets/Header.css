@@ -18,21 +18,21 @@
 {
     margin-left: 1vw;
 }
-.aboutButton
+.aboutButton, .darkmodeButton
 {
     border: none;
     background-color: transparent;
     font-family: monospace;
     font-size: larger;
-    position: relative;
-    margin-left: 75vw;
 }
 .darkmodeButton
 {
-    border: none;
-    background-color: transparent;
-    font-family: monospace;
-    font-size: larger;
+    padding-right: 0;
+}
+.buttons
+{
+    margin-right: 1vw;
+    margin-left: auto;
 }
 .aboutButton:hover, .darkmodeButton:hover
 {
