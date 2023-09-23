@@ -1,7 +1,9 @@
 import '../sheets/Search.css';
+import {getDarkmode} from './Header';
 
 function Search() 
 {
+
     return (
         <div className="main">
                 <div className='outer'>

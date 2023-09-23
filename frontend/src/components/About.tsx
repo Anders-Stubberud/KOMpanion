@@ -1,10 +1,12 @@
+import Header from "./Header";
 
 
 function About()
 {
     return (
         <div>
-            <p>about KOMpanion</p>
+            <Header></Header>
+            <hr></hr>
         </div>
     );
 }

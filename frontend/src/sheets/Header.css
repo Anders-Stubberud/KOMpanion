@@ -18,6 +18,26 @@
 {
     margin-left: 1vw;
 }
+.aboutButton
+{
+    border: none;
+    background-color: transparent;
+    font-family: monospace;
+    font-size: larger;
+    position: relative;
+    margin-left: 75vw;
+}
+.darkmodeButton
+{
+    border: none;
+    background-color: transparent;
+    font-family: monospace;
+    font-size: larger;
+}
+.aboutButton:hover, .darkmodeButton:hover
+{
+    font-weight: bolder;
+}
 h2
 {
     margin: 0;
