@@ -1,11 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import logo from './logo.svg';
 import '../sheets/App.css'
-import Mapbox from './Mapbox';
-import Header from './Header';
 import About from './About'
-import Search from './Search'
-import List from '../hooks/List'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Content from './Content';
 

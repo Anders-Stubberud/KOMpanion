@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import '../sheets/Header.css';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Header() 
 {
 
-    const [goTo, setGoTo] = React.useState(false);
-    if (goTo) {
-        return <Navigate to="/about"></Navigate>
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate('/about')
     }
 
 
@@ -17,7 +18,7 @@ function Header()
                 <h2>KOMpanion</h2>
                 <p><em>KOM analyzer</em></p>
             </div>  
-            <button onClick={() => {setGoTo(true)}}>about</button>
+            <button onClick={handleNavigate}>about</button>
         </div>
     );
 }
