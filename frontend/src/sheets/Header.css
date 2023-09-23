@@ -18,7 +18,7 @@
 {
     margin-left: 1vw;
 }
-.aboutButton, .darkmodeButton
+.aboutButton, .darkmodeButton, .kompanion
 {
     border: none;
     background-color: transparent;
@@ -37,6 +37,15 @@
 .aboutButton:hover, .darkmodeButton:hover
 {
     font-weight: bolder;
+}
+.kompanion
+{
+    font-size: 145%;
+    padding-left: 0;
+}
+.kompanion:hover
+{
+    font-weight: bold;
 }
 h2
 {

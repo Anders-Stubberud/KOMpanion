@@ -14,10 +14,10 @@ function Header()
     const navigate = useNavigate();
     const location = useLocation();
     
-    const handleNavigate = () => {
-        if (location.pathname !== '/about')
+    const handleNavigate = (cur: string, des: string) => {
+        if (cur !== des)
         {
-            navigate('/about')
+            navigate(des)
         }
     }
     
@@ -34,15 +34,18 @@ function Header()
     };
 
     return (
-        <div className='header'>
-            <div className='intro'>
-                <h2>KOMpanion</h2>
-                <p><em>KOM analyzer</em></p>
-            </div>  
-            <div className='buttons'>
-                <button onClick={handleNavigate} className='aboutButton'><span>About</span></button>
-                <button onClick={handleDarkmode}  className='darkmodeButton'>darkmode</button>
+        <div>
+            <div className='header'>
+                <div className='intro'>
+                    <button onClick={() => handleNavigate(location.pathname, '/')}  className='kompanion'>KOMpanion</button>
+                    <p><em>KOM analyzer</em></p>
+                </div>  
+                <div className='buttons'>
+                    <button onClick={() => handleNavigate(location.pathname, '/about')} className='aboutButton'><span>About</span></button>
+                    <button onClick={handleDarkmode}  className='darkmodeButton'>darkmode</button>
+                </div>  
             </div>
+            <hr></hr>
         </div>
     );
 }
