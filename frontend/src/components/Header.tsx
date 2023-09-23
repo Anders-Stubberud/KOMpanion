@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import '../sheets/Header.css';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
-export let dark = false;
-
-function getDarkmode() {
-    return dark;
+interface SearchProps {
+    darkmode: boolean;
+    toggleDarkmode: () => void;
 }
 
-function Header() 
+function Header({darkmode, toggleDarkmode}:SearchProps) 
 {
 
     const navigate = useNavigate();
@@ -20,35 +19,30 @@ function Header()
             navigate(des)
         }
     }
-    
-    const [darkmodeBool, setDarkmode] = React.useState(false);
-    const handleDarkmode = () => {
-        if (darkmodeBool) {
-            setDarkmode(false);
-            dark = false;
-        } 
-        else {
-            setDarkmode(true);
-            dark = true;
-        }
-    };
+
+    const dark = darkmode ? 'darkmode' : '';
 
     return (
         <div>
             <div className='header'>
                 <div className='intro'>
-                    <button onClick={() => handleNavigate(location.pathname, '/')}  className='kompanion'>KOMpanion</button>
-                    <p><em>KOM analyzer</em></p>
+                    <button onClick={() => handleNavigate(location.pathname, '/')}  
+                    className={`kompanion ${dark}`}>KOMpanion</button>
+                    <p className={dark}><em>KOM analyzer</em></p>
                 </div>  
                 <div className='buttons'>
-                    <button onClick={() => handleNavigate(location.pathname, '/about')} className='aboutButton'><span>About</span></button>
-                    <button onClick={handleDarkmode}  className='darkmodeButton'>darkmode</button>
+                    <button onClick={() => handleNavigate(location.pathname, '/about')} 
+                        className={`aboutButton ${dark}`}>
+                        <span className={dark}>About</span>
+                    </button>
+                    <button onClick={() => toggleDarkmode()}  className={`darkmodeButton ${dark}`}>
+                        darkmode
+                    </button>
                 </div>  
             </div>
-            <hr></hr>
+            <hr className={dark}></hr>
         </div>
     );
 }
 
 export default Header;
-export {getDarkmode};

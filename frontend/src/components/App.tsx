@@ -1,28 +1,23 @@
 import About from './About'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Content from './Content';
+import { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 
 function App() 
 {
 
-  // const [data, setData] = useState([{}])
-
-  // useEffect(() => {
-  //   fetch("/api").then(
-  //     response => response.json()
-  //   ).then(
-  //     data => {
-  //       setData(data)
-  //     }
-  //   )
-  // }, [])
+  const [darkmode, setDarkmode] = React.useState(false);
+  const toggleDarkmode = () => {
+      setDarkmode(!darkmode);
+  }
 
   return (
       <div>
         <Router>
           <Routes>
-            <Route path='/' element={<Content></Content>}></Route>
-            <Route path='/about' element={<About></About>}></Route>
+            <Route path='/' element={<Content darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Content>}></Route>
+            <Route path='/about' element={<About darkmode={darkmode} toggleDarkmode={toggleDarkmode}></About>}></Route>
           </Routes>
         </Router>
       </div>

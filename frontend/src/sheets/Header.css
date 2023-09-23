@@ -52,3 +52,9 @@ h2
     margin: 0;
     font-family: monospace;
 }
+/* darkmode */
+.darkmode
+{
+    color: grey;
+    border-color: grey;
+}

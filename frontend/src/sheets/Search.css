@@ -47,15 +47,23 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 {
     margin-left: 0;
     margin-bottom: 0.5vh;
-    font-weight: bold;
     font-family: monospace;
     border-style: none;
     height: 5.6vh;
     background-color: transparent;
     border: 2px solid gray;
 }
+.enter:hover
+{
+    font-weight: bold;
+}
 p
 {
     font-family: monospace;
     margin: 0;
+}
+/* darkmode */
+.darkmode 
+{
+    color: grey;
 }
