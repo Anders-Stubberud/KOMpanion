@@ -1,4 +1,4 @@
-import List from "../hooks/List";
+import List from "./List";
 import Header from "./Header";
 import Mapbox from "./Mapbox";
 import Search from "./Search";
@@ -17,8 +17,8 @@ function Content({darkmode, toggleDarkmode}:SearchProps) {
             <Header darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Header>
             <Search darkmode={darkmode}></Search>
             <div className='mapbox-list'>
-                <List></List>
-                <Mapbox></Mapbox>
+                <List darkmode={darkmode}></List>
+                <Mapbox darkmode={darkmode}></Mapbox>
             </div>
         </div>
     )

@@ -7,3 +7,8 @@
     margin-left: -1px;
     flex-grow: 1;
 }
+/* darkmode */
+.darkmode_mapbox
+{
+    border-color: white;
+}

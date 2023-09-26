@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import Header from "./Header";
 
 interface SearchProps {
@@ -6,7 +5,7 @@ interface SearchProps {
     toggleDarkmode: () => void;
 }
 
-function About({darkmode}:SearchProps, {toggleDarkmode}:SearchProps)
+function About({darkmode, toggleDarkmode}:SearchProps)
 {
     return (
         <div>

@@ -10,6 +10,14 @@ function App()
   const [darkmode, setDarkmode] = React.useState(false);
   const toggleDarkmode = () => {
       setDarkmode(!darkmode);
+      if (darkmode)
+      {
+        document.body.style.backgroundColor = 'white';
+      }
+      else 
+      {
+        document.body.style.backgroundColor = 'black';
+      }
   }
 
   return (

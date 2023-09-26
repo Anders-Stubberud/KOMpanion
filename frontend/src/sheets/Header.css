@@ -52,9 +52,13 @@ h2
     margin: 0;
     font-family: monospace;
 }
-/* darkmode */
-.darkmode
+.hr
 {
-    color: grey;
-    border-color: grey;
+    border: 1px solid black;
+}
+/* darkmode */
+.darkmode_header
+{
+    color: white;
+    border-color: white;
 }

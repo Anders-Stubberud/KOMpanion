@@ -1,10 +1,17 @@
 import React from 'react';
 import '../sheets/MapBox.css';
 
-function Mapbox() 
+interface SearchProps {
+    darkmode: boolean;
+}
+
+function Mapbox({darkmode}: SearchProps) 
 {
+
+    const dark = darkmode ? 'darkmode_mapbox' : '';
+
     return (
-        <div className="mapbox">
+        <div className={`mapbox ${dark}`}>
         </div>
     );
 }

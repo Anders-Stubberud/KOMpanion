@@ -7,7 +7,7 @@ interface SearchProps {
 function Search({darkmode}:SearchProps) 
 {
 
-    const dark = darkmode ? 'darkmode' : '';
+    const dark = darkmode ? 'darkmode_search' : '';
 
     function func() {
         console.log("k");

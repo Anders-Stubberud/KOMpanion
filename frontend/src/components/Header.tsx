@@ -20,7 +20,8 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
         }
     }
 
-    const dark = darkmode ? 'darkmode' : '';
+    const dark = darkmode ? 'darkmode_header' : '';
+    const mode = darkmode ? 'lightmode' : 'darkmode';
 
     return (
         <div>
@@ -36,11 +37,11 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
                         <span className={dark}>About</span>
                     </button>
                     <button onClick={() => toggleDarkmode()}  className={`darkmodeButton ${dark}`}>
-                        darkmode
+                        {mode}
                     </button>
                 </div>  
             </div>
-            <hr className={dark}></hr>
+            <hr className={`hr ${dark}`}></hr>
         </div>
     );
 }
