@@ -1,4 +1,5 @@
 import About from './About'
+import '../sheets/App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Content from './Content';
 import { Dispatch, SetStateAction } from 'react';

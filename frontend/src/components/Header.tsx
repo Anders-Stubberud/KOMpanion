@@ -28,20 +28,20 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
             <div className='header'>
                 <div className='intro'>
                     <button onClick={() => handleNavigate(location.pathname, '/')}  
-                    className={`kompanion ${dark}`}>KOMpanion</button>
-                    <p className={dark}><em>KOM analyzer</em></p>
+                    className={`kompanion transition_header ${dark}`}>KOMpanion</button>
+                    <p className={`transition_header ${dark}`}><em>KOM analyzer</em></p>
                 </div>  
                 <div className='buttons'>
                     <button onClick={() => handleNavigate(location.pathname, '/about')} 
                         className={`aboutButton ${dark}`}>
-                        <span className={dark}>About</span>
+                        <span className={`transition_header ${dark}`}>About</span>
                     </button>
-                    <button onClick={() => toggleDarkmode()}  className={`darkmodeButton ${dark}`}>
+                    <button onClick={() => toggleDarkmode()}  className={`darkmodeButton transition_header ${dark}`}>
                         {mode}
                     </button>
                 </div>  
             </div>
-            <hr className={`hr ${dark}`}></hr>
+            <hr className={`hr transition_header ${dark}`}></hr>
         </div>
     );
 }

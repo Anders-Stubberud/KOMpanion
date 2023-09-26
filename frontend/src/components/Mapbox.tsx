@@ -11,7 +11,7 @@ function Mapbox({darkmode}: SearchProps)
     const dark = darkmode ? 'darkmode_mapbox' : '';
 
     return (
-        <div className={`mapbox ${dark}`}>
+        <div className={`mapbox transition_mapbox ${dark}`}>
         </div>
     );
 }

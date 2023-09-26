@@ -10,7 +10,7 @@ function List({darkmode}: SearchProps)
     const dark = darkmode ? 'darkmode_list' : '';
 
     return (
-        <div className={`listcontainer ${dark}`}>
+        <div className={`listcontainer transition_list ${dark}`}>
 
         </div>
     );

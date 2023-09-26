@@ -8,6 +8,7 @@
     margin-bottom: 4vh;
     margin-left: 1vw;
     margin-right: 1vw;
+    color: black;
 }
 .searchbar, .radius, .enter 
 {
@@ -38,7 +39,7 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
     margin-left: 0;
     margin-top: 0;
     padding-top: 0;
-    border: 2px solid gray;
+    border: 2px solid #7f7f7f;
     height: 5vh;
     padding-left: 2vw;
     padding-right: 2vw;
@@ -51,7 +52,7 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
     border-style: none;
     height: 5.6vh;
     background-color: transparent;
-    border: 2px solid gray;
+    border: 2px solid #7f7f7f;
 }
 .enter:hover
 {
@@ -66,4 +67,8 @@ p
 .darkmode_search 
 {
     color: white;
+}
+.transition_search
+{
+    transition: color 0.5s ease, border-color 0.5s ease;
 }

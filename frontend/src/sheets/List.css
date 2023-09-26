@@ -6,8 +6,18 @@
     margin-left: 0vw;
     margin-right: -1px;
     width: 27.65vw;
+    transition: 0.5s ease;
 }
+/* darkmode */
 .darkmode_list
 {
     border-color: white;
+}
+.transition
+{
+    transition: color 3s ease;
+}
+.transition_list
+{
+    transition: color 0.5s ease, border-color 0.5s ease;
 }
