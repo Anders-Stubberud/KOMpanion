@@ -5,6 +5,7 @@ import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import '../sheets/MapBox.css';
+import MouseWheelZoom from 'ol/interaction/MouseWheelZoom';
 
 interface SearchProps {
     darkmode: boolean;
@@ -25,14 +26,15 @@ function Mapbox({darkmode}: SearchProps)
             }),
           ],
           view: new View({
-            center: [0, 0], // Initial map center coordinates
-            zoom: 2, // Initial zoom level
+            zoomFactor: 500,
+            center: [2500000, 7500000], // Initial map center coordinates
+            zoom: 0.3825 // Initial zoom level
           }),
         });
     
         // Clean up when the component unmounts
         return () => map.dispose();
-      }, []);
+    }, []);
 
     return (
         <div className={`mapbox transition_mapbox ${dark}`}>
