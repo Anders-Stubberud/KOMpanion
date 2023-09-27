@@ -1,8 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Numerics;
+using System.Net.Http;
+using System.Threading.Tasks;
 
-Console.WriteLine("-");
+class Program
+{
+    static static void Main()
+    {
+
+    }
+}

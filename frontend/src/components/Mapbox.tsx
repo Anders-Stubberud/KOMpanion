@@ -6,6 +6,9 @@ import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import '../sheets/MapBox.css';
 import MouseWheelZoom from 'ol/interaction/MouseWheelZoom';
+import { Draw, Modify, Snap } from 'ol/interaction';
+import { Vector as VectorLayer } from 'ol/layer';
+import { Vector as VectorSource } from 'ol/source';
 
 interface SearchProps {
     darkmode: boolean;

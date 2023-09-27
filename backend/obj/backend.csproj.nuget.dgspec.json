@@ -40,6 +40,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Strava.DotNet": {
+              "target": "Package",
+              "version": "[3.0.0-CI-20200325-070828, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -13,3 +13,8 @@ C:\KOMpanion\backend\obj\Debug\net8.0\refint\backend.dll
 C:\KOMpanion\backend\obj\Debug\net8.0\backend.pdb
 C:\KOMpanion\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 C:\KOMpanion\backend\obj\Debug\net8.0\ref\backend.dll
+C:\KOMpanion\backend\obj\Debug\net8.0\backend.csproj.AssemblyReference.cache
+C:\KOMpanion\backend\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\KOMpanion\backend\bin\Debug\net8.0\RestSharp.dll
+C:\KOMpanion\backend\bin\Debug\net8.0\Strava.NET.dll
+C:\KOMpanion\backend\obj\Debug\net8.0\backend.csproj.CopyComplete
