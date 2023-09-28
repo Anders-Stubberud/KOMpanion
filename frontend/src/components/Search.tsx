@@ -16,15 +16,12 @@ function Search({darkmode, setData}:SearchProps)
     const dark = darkmode ? 'darkmode_search' : '';
 
     function search() {
-        axios.get('http://localhost:5001/data', {
-            params: {
-                location: "teste",
-                radius: "testeee"
-            }
-        }).then(
+        axios.get('http://localhost:5000/data').then(
             (response) => {
                 setData(response.data);
-            })
+            }).catch(error => {
+                console.log(error);
+            });
     }
 
     const [location, setLocation] = useState('');
@@ -33,6 +30,12 @@ function Search({darkmode, setData}:SearchProps)
       const inputValue = e.target.value;
       setLocation(inputValue);
     };
+
+    const setSelectLocation = (e: any) => {
+        const value = e.target.textContent;
+        console.log(value);
+        setLocation(value);
+    }
 
     const [suggestions, updateSuggestions] = useState<string []>([]);
     const setSuggestions = (suggestions: string []) => {
@@ -69,11 +72,14 @@ function Search({darkmode, setData}:SearchProps)
                     <p className={`transition_search ${dark}`}>location</p>
                     <input 
                     type="text" 
+                    id='loc'
+                    value={location}
                     className="searchbar"
                     onChange={handleInputChange}
-                    ></input>
+                    >
+                    </input>
                     <div className='suggestions'>
-                        <Suggestions darkmode={darkmode} suggestions={suggestions}></Suggestions>
+                        <Suggestions darkmode={darkmode} suggestions={suggestions}setSelectLocation={setSelectLocation}></Suggestions>
                     </div>
                 </div>
                 {/* ts function for maksimal radius */}

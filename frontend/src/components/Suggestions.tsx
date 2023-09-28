@@ -1,12 +1,13 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import '../sheets/Suggestions.css';
 
 interface SearchProps {
     darkmode: boolean;
     suggestions: string [];
+    setSelectLocation: (e:any) => void;
 }
 
-function Suggestions({suggestions, darkmode}: SearchProps)
+function Suggestions({suggestions, darkmode, setSelectLocation}: SearchProps)
 {
     function getStringWidth(string: string) {
         const span = document.createElement('span');
@@ -36,13 +37,21 @@ function Suggestions({suggestions, darkmode}: SearchProps)
         return suggestion;
     }
 
+    function funcy(e:any) {
+        setSelectLocation(e);
+    }
+
     const border = suggestions.length > 0 ? 'border' : '';
     const dark = darkmode ? 'darkmode_suggestion' : '';
 
     return (
         <div className={`main_suggestions ${border} ${dark}`}>
             {suggestions.map((suggestion, index) => (
-                <button className={`suggestion transistion_suggestion ${dark}`} key={index}>{trim(suggestion)}</button>
+                <button 
+                className={`suggestion transistion_suggestion ${dark}`} key={index}
+                onClick={(e) => funcy(e)}
+                >{trim(suggestion)}
+                </button>
             ))}
         </div>
     );
