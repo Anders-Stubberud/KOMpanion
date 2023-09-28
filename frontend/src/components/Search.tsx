@@ -16,9 +16,11 @@ function Search({darkmode, setData}:SearchProps)
     const dark = darkmode ? 'darkmode_search' : '';
 
     function search() {
-        axios.get('http://localhost:5000/data').then(
+        // muligens sette opp en proxy
+        axios.get('http://localhost:5000/api/data').then(
             (response) => {
                 setData(response.data);
+                console.log(response.data);
             }).catch(error => {
                 console.log(error);
             });
