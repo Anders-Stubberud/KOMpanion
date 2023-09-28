@@ -63,6 +63,11 @@ p
     font-family: monospace;
     margin: 0;
 }
+.suggestions
+{
+    position: absolute;
+    margin-top: 0.5vh;
+}
 /* darkmode */
 .darkmode_search 
 {

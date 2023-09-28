@@ -1,0 +1,28 @@
+.main_suggestions
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+.suggestion
+{
+    text-align: left;
+}
+.border
+{
+    border: 2px solid #7f7f7f;
+}
+.border:hover
+{
+    font-weight: bold;
+}
+/* dakrmode */
+.darkmode_suggestion
+{
+    background-color: black;
+    color: white;
+}
+.transistion_suggestion
+{
+    transition: color 0.5s ease, border-color 0.5s ease, background-color 0.5s ease;
+}
