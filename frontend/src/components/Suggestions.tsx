@@ -32,6 +32,9 @@ function Suggestions({suggestions, darkmode, setSelectLocation}: SearchProps)
                 {
                     slice = slice.substring(0, slice.lastIndexOf(" "));
                 }
+                if (slice.indexOf(',') > -1) {
+                    slice = slice.substring(0, slice.lastIndexOf(","));
+                }
             return slice;
         }
         return suggestion;

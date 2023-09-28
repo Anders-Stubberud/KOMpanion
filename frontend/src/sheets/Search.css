@@ -68,6 +68,12 @@ p
     position: absolute;
     margin-top: 0.5vh;
 }
+.radmax
+{
+    font-size: x-small;
+    margin-left: 0.2vw;
+    display: block;
+}
 /* darkmode */
 .darkmode_search 
 {
