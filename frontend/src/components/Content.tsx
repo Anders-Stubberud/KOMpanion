@@ -3,7 +3,7 @@ import Header from "./Header";
 import Mapbox from "./Mapbox";
 import Search from "./Search";
 import '../sheets/Content.css';
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 
 interface SearchProps {
     darkmode: boolean;
@@ -12,12 +12,20 @@ interface SearchProps {
 
 function Content({darkmode, toggleDarkmode}:SearchProps) {
 
+    const [data, updateData] = useState();
+    const setData = (data: any) => {
+        updateData(data);
+    }
+
     return (
         <div>
             <Header darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Header>
-            <Search darkmode={darkmode}></Search>
+            <Search
+            darkmode={darkmode}
+            setData={setData} 
+            ></Search>
             <div className='mapbox-list'>
-                <List darkmode={darkmode}></List>
+                <List darkmode={darkmode} data={data}></List>
                 <Mapbox darkmode={darkmode}></Mapbox>
             </div>
         </div>

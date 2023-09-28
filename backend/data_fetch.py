@@ -20,10 +20,10 @@ payload = {
     'f': 'json'
 }
 
-print("Requesting Token...\n")
+# print("Requesting Token...\n")
 res = requests.post(auth_url, data=payload, verify=False)
 access_token = res.json()['access_token']
-print("Access Token = {}\n".format(access_token))
+# print("Access Token = {}\n".format(access_token))
 
 header = {'Authorization': 'Bearer ' + access_token}
 # param = {'per_page': 200, 'page': 1}
@@ -33,5 +33,5 @@ my_dataset = requests.get(activites_url, headers=header).json()
 def test():
     return(my_dataset)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)

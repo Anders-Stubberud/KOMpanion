@@ -1,25 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../sheets/List.css'
-import axios from 'axios';
 import React from 'react';
 
 interface SearchProps {
     darkmode: boolean;
+    data: any;
 }
 
-function List({darkmode}: SearchProps) 
+function List({darkmode, data}: SearchProps) 
 {
 
     const dark = darkmode ? 'darkmode_list' : '';
-
-    const [data, setData] = useState([{}]);
-
-    React.useEffect(() => {
-        axios.get('http://localhost:5000/data').then((response) => {
-          setData(response.data);
-          console.log(response.data)
-        });
-      }, []);
 
     return (
         <div className={`listcontainer transition_list ${dark}`}>
