@@ -8,10 +8,6 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/api/test')
-def testing():
-    return "teste"
-
 @app.route('/api/fetch_coordinates')
 @cross_origin()
 def fetch_coordinates_func():

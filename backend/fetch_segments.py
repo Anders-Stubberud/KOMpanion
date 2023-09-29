@@ -25,7 +25,7 @@ def fetch_segments(latitude, longtitude, radius):
     my_dataset = requests.get(activites_url, headers=header).json()
     segments = my_dataset['segments']
 
-    return [segment['name'] for segment in segments]
+    return [segment['id'] for segment in segments]
 
 #strava sin API tar nedre venstre hjørne og øvre høyre hjørne som definisjon av søkeområde,
 #dermed blir det ikke helt nøyaktig å representere dette med en radius, 
