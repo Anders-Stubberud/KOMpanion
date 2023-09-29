@@ -27,6 +27,9 @@ def fetch_segments(latitude, longtitude, radius):
 
     return [segment['name'] for segment in segments]
 
+#strava sin API tar nedre venstre hjørne og øvre høyre hjørne som definisjon av søkeområde,
+#dermed blir det ikke helt nøyaktig å representere dette med en radius, 
+#men det blir lettere for brukere og det tillater fremdeles justering av område
 def segment_search_box(center_lat, center_lon, radius_km):
     center_lat, center_lon, radius_km = float(center_lat), float(center_lon), float(radius_km)
     earth_radius = 6371.0
