@@ -17,6 +17,6 @@ def fetch_coordinates(location):
             latlon = data['candidates'][0]['location']
             latitude = latlon['y']
             longitude = latlon['x']
-            return str(latitude) + '\n' + str(longitude)
-        return "no candidates"
-    return "api machine broke"
+            return [latitude, longitude]
+        return 'NO_HIT'
+    return 'NO_HIT'

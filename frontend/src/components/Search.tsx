@@ -1,6 +1,5 @@
 import '../sheets/Search.css';
 import Suggestions from './Suggestions';
-import { isValidLocation } from '../utils/validLocation';
 import { loadModules } from 'esri-loader';
 import { getAutoComplete } from '../utils/locationAutocomplete';
 import axios from 'axios';
@@ -20,13 +19,38 @@ function Search({darkmode, setData}:SearchProps)
 
         if (radchange < 1 || radchange > 50) {
             alert("Must have 1 <= radius <= 50")
+            return;
         }
-
-        if (! isValidLocation(exactLocation)) {
-
+        if (exactLocation.length < 2) {
+            alert('Must enter more precise location');
+            return;
         }
-
+        const api_url = 'http://localhost:5000/api/fetch_coordinates';
+        axios.get(api_url, {
+            params: {
+                location: exactLocation
+            }
+        }).then((response) => {
+            setCoord(response.data)
+        }).catch((error) => {
+            console.log(error);
+        })
     }
+
+    const [coord, updateCoord] = useState<number[]|string>('');
+    const setCoord = (coords: number[]|string) => {
+        updateCoord(coords);
+    }
+
+    useEffect(() => {
+        if (coord == '') {return;}
+        if (coord == 'NO_HIT' || !coord) {
+            console.log('NO_HIT');
+        }
+        else {
+            console.log(coord[0] + '\n' + coord[1]);
+        }
+    }, [coord])
 
     const [location, setLocation] = useState('');
 
@@ -41,7 +65,7 @@ function Search({darkmode, setData}:SearchProps)
         updateRadChange(e.target.value);
     }
 
-    const [exactLocation, setExactLocation] = useState<string>();
+    const [exactLocation, setExactLocation] = useState<string>('');
 
 
     const setSelectLocation = (e: any) => {

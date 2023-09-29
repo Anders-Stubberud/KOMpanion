@@ -1,5 +1,5 @@
 import requests
-import get_segments
+import fetch_segments
 import fetch_coordinates
 import urllib3
 from flask import Flask, request, send_from_directory, jsonify

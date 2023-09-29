@@ -1,20 +1,21 @@
-import axios from "axios";
+// import axios from "axios";
 
-export function isValidLocation(loc: string|undefined): boolean {
-    const api_url = 'http://localhost:5000/api/fetch_coordinates';
+// export function isValidLocation(loc: string|undefined): string {
+//     const api_url = 'http://localhost:5000/api/fetch_coordinates';
 
-    axios.get(api_url, {
-        params: {
-            location: loc
-        }
-    }).then(
-        (res) => {
-            let latlon = res.data;
-            console.log(latlon);
-        }
-    ).catch((error) => {
-        console.log(error);
-    })
+//     // let fetched_location = axios.get(api_url, {
+//         params: {
+//             location: loc
+//         }
+//     });
 
-    return false;
-}
+//     let res: boolean = false;
+
+//     fetched_location.then(
+//         (response) => {
+//             return response
+//         }
+//     )
+
+// }
+export {}
