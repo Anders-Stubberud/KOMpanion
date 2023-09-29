@@ -43,12 +43,21 @@ function Search({darkmode, setData}:SearchProps)
     }
 
     useEffect(() => {
-        if (coord == '') {return;}
-        if (coord == 'NO_HIT' || !coord) {
-            console.log('NO_HIT');
-        }
+        if (coord == '' ||coord == 'NO_HIT' || !coord) {return;}
         else {
-            console.log(coord[0] + '\n' + coord[1]);
+            const api_url = 'http://localhost:5000/api/fetch_segments';
+            axios.get(api_url, {
+                params: {
+                    latitude: coord[0],
+                    longtitude: coord[1],
+                    radius: radchange
+                }
+            }).then((response) => {
+                let res = response.data;
+                console.log(res);
+            }).catch((error) => {
+                console.log(error)
+            })
         }
     }, [coord])
 

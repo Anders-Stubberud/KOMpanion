@@ -16,9 +16,17 @@ def testing():
 @cross_origin()
 def fetch_coordinates_func():
     location = request.args.get('location')
-    print(location + "   application")
     if location : return jsonify(fetch_coordinates.fetch_coordinates(location))
-    return jsonify({'error': 'Location parameter is missing'})
+    else: return jsonify({'error': 'Location parameter is missing'})
+
+@app.route('/api/fetch_segments')
+@cross_origin()
+def fetch_segments_func():
+    latitude = request.args.get('latitude')
+    longtitude = request.args.get('longtitude')
+    radius = request.args.get('radius')
+    if latitude and longtitude and radius: return jsonify(fetch_segments.fetch_segments(latitude, longtitude, radius))
+    else: return jsonify({'error': 'coordinates and/or radius parameters missing'})
 
 if __name__ == "__main__":
     app.run(debug=True)
