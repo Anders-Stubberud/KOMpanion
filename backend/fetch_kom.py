@@ -1,19 +1,29 @@
 import requests
 import urllib3
+import pandas as pd
+import estimate_wattage
 import concurrent.futures
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def fetch_kom(segment_id_array):
     access_token = get_access_token()
-
     #fetcher data'en med parallelle GET requests
     with concurrent.futures.ThreadPoolExecutor() as executor:
         responses = [executor.submit(fetch_segment_data, segment_id, access_token) for segment_id in segment_id_array]
-
     segment_data = [response.result() for response in responses]
+    segment_data_with_value = [(segment, segment_difficulty(segment)) for segment in segment_data]
+    # segments_sorted = sorted(segment_data_with_value, key=lambda x: x[1])
 
     return segment_data
+
+def segment_difficulty(segment):
+    distance = float(segment['distance'])
+    average_grade =  float(segment['average_grade'])
+    kom_time_min_sec = segment['xoms']['kom']
+    kom_time = float(kom_time_min_sec[:kom_time_min_sec.index(':')]) + float(kom_time_min_sec[kom_time_min_sec.index(':')+1:])
+    wattage = estimate_wattage.estimate_average_wattage(kom_time, distance, average_grade)
+
 
 def fetch_segment_data(segment_id, access_token):
     segment_url = f'https://www.strava.com/api/v3/segments/{segment_id}'
@@ -34,4 +44,3 @@ def get_access_token():
     access_token = res.json()['access_token']
     return access_token
 
-print(fetch_kom(['4199240']))
