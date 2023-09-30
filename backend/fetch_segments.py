@@ -1,6 +1,7 @@
 import requests
 import urllib3
 import math
+import fetch_kom
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 def fetch_segments(latitude, longtitude, radius):
@@ -25,7 +26,7 @@ def fetch_segments(latitude, longtitude, radius):
     my_dataset = requests.get(activites_url, headers=header).json()
     segments = my_dataset['segments']
 
-    return [segment['id'] for segment in segments]
+    return fetch_kom.fetch_kom([segment['id'] for segment in segments])
 
 #strava sin API tar nedre venstre hjørne og øvre høyre hjørne som definisjon av søkeområde,
 #dermed blir det ikke helt nøyaktig å representere dette med en radius, 
@@ -42,5 +43,3 @@ def segment_search_box(center_lat, center_lon, radius_km):
     upper_right_lat = center_lat + (lat_diff / 2)
     upper_right_lon = center_lon + (lon_diff / 2)
     return [lower_left_lat, lower_left_lon, upper_right_lat, upper_right_lon]
-
-print(fetch_segments(60.79391, 11.07599, 10))

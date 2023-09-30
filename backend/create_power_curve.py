@@ -56,5 +56,6 @@ while i_row > end_row:
 
 with open('power curve.csv', mode='w', newline='') as file:
     writer = csv.writer(file)
+    writer.writerow(['' for _ in range(3597)]) 
     for row in matrix:
         writer.writerow(row)

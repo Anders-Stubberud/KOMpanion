@@ -1,3 +1,4 @@
+import re
 import requests
 import urllib3
 import pandas as pd
@@ -6,6 +7,8 @@ import concurrent.futures
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+loaded_data = None
+
 def fetch_kom(segment_id_array):
     access_token = get_access_token()
     #fetcher data'en med parallelle GET requests
@@ -13,17 +16,41 @@ def fetch_kom(segment_id_array):
         responses = [executor.submit(fetch_segment_data, segment_id, access_token) for segment_id in segment_id_array]
     segment_data = [response.result() for response in responses]
     segment_data_with_value = [(segment, segment_difficulty(segment)) for segment in segment_data]
-    # segments_sorted = sorted(segment_data_with_value, key=lambda x: x[1])
-
-    return segment_data
+    segments_sorted = sorted(segment_data_with_value, key=lambda x: x[1])
+    return segments_sorted
 
 def segment_difficulty(segment):
     distance = float(segment['distance'])
     average_grade =  float(segment['average_grade'])
-    kom_time_min_sec = segment['xoms']['kom']
-    kom_time = float(kom_time_min_sec[:kom_time_min_sec.index(':')]) + float(kom_time_min_sec[kom_time_min_sec.index(':')+1:])
+    kom_time_string = segment['xoms']['kom']
+    kom_time = time_to_seconds(kom_time_string)
     wattage = estimate_wattage.estimate_average_wattage(kom_time, distance, average_grade)
+    return aquire_percentage(wattage, kom_time)
 
+def load_data():
+    global loaded_data
+    if loaded_data is None:
+        df = pd.read_csv('power curve.csv')
+        df.iloc[0, 1:] = df.iloc[0, 1:].astype(float)
+        loaded_data = df.values
+
+#kan implementere binary search i tids-raden og watt-kolonnen for å bruke mindre tid
+def aquire_percentage(wattage, time):
+    load_data()
+    matrix = loaded_data
+    if time <= 5:
+        time_column = 1
+    elif time >= 3600:
+        time_column = 3596
+    else:
+        for i in range(2, 3596):
+            if matrix[0][i] == time:
+                time_column = i
+                break
+    for i in range(1, len(matrix)):
+        if wattage >= matrix[i][time_column]:
+            return int(matrix[i][0])
+    return 0
 
 def fetch_segment_data(segment_id, access_token):
     segment_url = f'https://www.strava.com/api/v3/segments/{segment_id}'
@@ -44,3 +71,22 @@ def get_access_token():
     access_token = res.json()['access_token']
     return access_token
 
+def time_to_seconds(time_str):
+    if 's' in time_str:
+        seconds = int(re.search(r'\d+', time_str).group())
+        return seconds
+    if ':' in time_str:
+        parts = time_str.split(':')
+        if len(parts) == 2:
+            minutes, seconds = map(int, parts)
+            return minutes * 60 + seconds
+        elif len(parts) == 3:
+            hours, minutes, seconds = map(int, parts)
+            return hours * 3600 + minutes * 60 + seconds
+    return 0
+
+# watt = estimate_wattage.estimate_average_wattage(6*60 + 20, 3725, 0.3)
+# print(watt)
+# per = aquire_percentage(watt + 200, 6*60 + 20)
+# print(per)
+# print(type(per))

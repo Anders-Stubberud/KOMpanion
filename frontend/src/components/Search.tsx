@@ -43,7 +43,12 @@ function Search({darkmode, setData}:SearchProps)
     }
 
     useEffect(() => {
-        if (coord == '' ||coord == 'NO_HIT' || !coord) {return;}
+        if (coord == '' || !coord) {
+            return;
+        }
+        else if (coord == 'NO_HIT') {
+            console.log('Could not find given location')
+        }
         else {
             const api_url = 'http://localhost:5000/api/fetch_segments';
             axios.get(api_url, {
@@ -54,7 +59,7 @@ function Search({darkmode, setData}:SearchProps)
                 }
             }).then((response) => {
                 let res = response.data;
-                console.log(res);
+                setData(res)
             }).catch((error) => {
                 console.log(error)
             })

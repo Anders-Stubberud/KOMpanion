@@ -12,9 +12,10 @@ interface SearchProps {
 
 function Content({darkmode, toggleDarkmode}:SearchProps) {
 
-    const [data, updateData] = useState();
+    const [data, updateData] = useState<[]>([]);
     const setData = (data: any) => {
         updateData(data);
+        console.log(data);
     }
 
     return (

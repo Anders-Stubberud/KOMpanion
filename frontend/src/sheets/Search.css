@@ -67,6 +67,7 @@ p
 {
     position: absolute;
     margin-top: 0.5vh;
+    z-index: 1;
 }
 .radmax
 {

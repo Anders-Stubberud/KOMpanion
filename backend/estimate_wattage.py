@@ -20,4 +20,6 @@ def calculate_air_density(altitude_meters, temperature_celsius):
                   (1 - (0.0065 * altitude_meters) / (temperature_celsius + 273.15)) ** 5.257
     return air_density
 
+print(estimate_average_wattage(93, 1590, 0, 70))
+
 
