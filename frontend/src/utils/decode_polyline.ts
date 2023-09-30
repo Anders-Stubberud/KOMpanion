@@ -36,4 +36,4 @@
     return coordinates;
 }
 
-export default decodePolyline;
+export default decodePolyline;  

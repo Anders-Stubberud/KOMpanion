@@ -21,21 +21,19 @@ interface SearchProps {
 }
 
 function Mapbox({ darkmode, data }: SearchProps) {
+
     const [render, updateRender] = useState(true);
-    const setRender = () => {
-        updateRender(false);
-    }
     const dark = darkmode ? 'darkmode_mapbox' : '';
 
     useEffect(() => {
+          let lineString = undefined;
           if (! render) {
-          console.log('IKKE render, med vektorer etc');
-
-          const decoded = decodePolyline(data[0][0].map.polyline);
-
-          const lineString = new LineString(decoded.map(coord => fromLonLat(coord)));
-
-          console.log(lineString);
+            const decoded = decodePolyline(data[0][0].map.polyline);
+            lineString = new LineString(decoded.map(coord => fromLonLat(coord)));
+          }
+          else {
+            updateRender(false);
+          }
 
           const feature = new Feature({
               geometry: lineString,
@@ -73,27 +71,7 @@ function Mapbox({ darkmode, data }: SearchProps) {
             }),
           });
           return () => map.dispose();
-        }
     }, [data]);
-
-    useEffect(() => {
-      console.log('render, uten vector');
-      const map = new Map({
-        target: 'map',
-        layers: [
-            new TileLayer({
-                source: new OSM(),
-            }),
-        ],
-        view: new View({
-            zoomFactor: 500,
-            center: [2500000, 7500000],
-            zoom: 0.3825
-        }),
-      });
-      setRender();
-      return () => map.dispose();
-    }, [])
 
     return (
         <div className={`mapbox transition_mapbox ${dark}`}>
