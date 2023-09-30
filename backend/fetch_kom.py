@@ -16,7 +16,7 @@ def fetch_kom(segment_id_array):
         responses = [executor.submit(fetch_segment_data, segment_id, access_token) for segment_id in segment_id_array]
     segment_data = [response.result() for response in responses]
     segment_data_with_value = [(segment, segment_difficulty(segment)) for segment in segment_data]
-    segments_sorted = sorted(segment_data_with_value, key=lambda x: x[1])
+    segments_sorted = sorted(segment_data_with_value, key=lambda x: x[1][0])
     return segments_sorted
 
 def segment_difficulty(segment):
@@ -25,7 +25,7 @@ def segment_difficulty(segment):
     kom_time_string = segment['xoms']['kom']
     kom_time = time_to_seconds(kom_time_string)
     wattage = estimate_wattage.estimate_average_wattage(kom_time, distance, average_grade)
-    return aquire_percentage(wattage, kom_time)
+    return (aquire_percentage(wattage, kom_time), beat_by_five(kom_time, distance, average_grade))
 
 def load_data():
     global loaded_data
@@ -71,6 +71,11 @@ def get_access_token():
     access_token = res.json()['access_token']
     return access_token
 
+def beat_by_five(seconds, meters, grade):
+    new_time = seconds * 0.95
+    return (int(estimate_wattage.estimate_average_wattage(new_time, meters, grade)), seconds_to_time(new_time))
+
+
 def time_to_seconds(time_str):
     if 's' in time_str:
         seconds = int(re.search(r'\d+', time_str).group())
@@ -85,8 +90,18 @@ def time_to_seconds(time_str):
             return hours * 3600 + minutes * 60 + seconds
     return 0
 
-# watt = estimate_wattage.estimate_average_wattage(6*60 + 20, 3725, 0.3)
-# print(watt)
-# per = aquire_percentage(watt + 200, 6*60 + 20)
-# print(per)
-# print(type(per))
+def seconds_to_time(seconds):
+    seconds = int(seconds)
+    if seconds < 60:
+        return f"{seconds}s"
+    elif seconds < 3600:
+        minutes = seconds // 60
+        remaining_seconds = seconds % 60
+        return f"{minutes:02}:{remaining_seconds:02}"
+    else:
+        hours = seconds // 3600
+        remaining_seconds = seconds % 3600
+        minutes = remaining_seconds // 60
+        remaining_seconds %= 60
+        return f"{hours}:{minutes:02}:{remaining_seconds:02}"
+

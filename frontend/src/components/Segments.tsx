@@ -14,8 +14,21 @@ function Segments({darkmode, segment_data}: SearchProps)
 
     return (
         <button className={'segment'}>
-            <p>segment name: {segment_data[0].name}</p>
-            <p>you gotta be in the top  {100 - segment_data[1]} % to get the KOM</p>
+            <div className='segment_div'>
+                <p><span className='bolds'>Segment name: </span>{segment_data[0].name}</p>
+                <div className='spacer'></div>
+                <p><span className='bolds'>Difficulty: </span>must beat {segment_data[1][0]}% of the database</p>
+                <div className='spacer'></div>
+                <p><span className='bolds'>Effort: </span>
+                {segment_data[1][1][0]}W for {segment_data[1][1][1]} to take KOM with 5% time margin
+                </p>
+                <div className='spacer'></div>
+                <p><span className='bolds'>Segment link: </span>
+                <a href={`https://www.strava.com/segments/${segment_data[0].id}`} target="_blank" rel="noopener noreferrer">
+                    {`https://www.strava.com/segments/${segment_data[0].id}`}
+                </a>
+                </p>
+            </div>
         </button>
     );
 }

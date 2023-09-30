@@ -1,43 +1,99 @@
-import React, { useEffect } from 'react';
-import 'ol/ol.css'; // Import OpenLayers CSS
+import React, { useEffect, useState } from 'react';
+import 'ol/ol.css';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import '../sheets/MapBox.css';
-import MouseWheelZoom from 'ol/interaction/MouseWheelZoom';
-import { Draw, Modify, Snap } from 'ol/interaction';
-import { Vector as VectorLayer } from 'ol/layer';
-import { Vector as VectorSource } from 'ol/source';
+import VectorLayer from 'ol/layer/Vector';
+import Feature from 'ol/Feature';
+import LineString from 'ol/geom/LineString';
+import { getCenter } from 'ol/extent'; // Import getCenter from ol/extent
+import { fromLonLat } from 'ol/proj';
+import VectorSource from 'ol/source/Vector';
+import decodePolyline from '../utils/decode_polyline';
+import Style from 'ol/style/Style';
+import Stroke from 'ol/style/Stroke';
 
 interface SearchProps {
     darkmode: boolean;
+    data: any;
 }
 
-function Mapbox({darkmode}: SearchProps) 
-{
-
+function Mapbox({ darkmode, data }: SearchProps) {
+    const [render, updateRender] = useState(true);
+    const setRender = () => {
+        updateRender(false);
+    }
     const dark = darkmode ? 'darkmode_mapbox' : '';
 
     useEffect(() => {
-        // Initialize the map
-        const map = new Map({
-          target: 'map', // ID of the HTML element to render the map
-          layers: [
-            new TileLayer({
-              source: new OSM(), // OpenStreetMap as the base layer
+          if (! render) {
+          console.log('IKKE render, med vektorer etc');
+
+          const decoded = decodePolyline(data[0][0].map.polyline);
+
+          const lineString = new LineString(decoded.map(coord => fromLonLat(coord)));
+
+          console.log(lineString);
+
+          const feature = new Feature({
+              geometry: lineString,
+          });
+
+          const lineStyle = new Style({
+            stroke: new Stroke({
+              color: 'blue',
+              width: 5,      
             }),
-          ],
-          view: new View({
+          });
+      
+          feature.setStyle(lineStyle);
+
+          const vectorSource = new VectorSource({
+            features: [feature]
+          });
+
+          const vectorLayer = new VectorLayer({
+            source: vectorSource
+          });
+
+          const map = new Map({
+            target: 'map',
+            layers: [
+                new TileLayer({
+                    source: new OSM(),
+                }),
+                vectorLayer
+            ],
+            view: new View({
+                zoomFactor: 500,
+                center: [2500000, 7500000],
+                zoom: 0.3825
+            }),
+          });
+          return () => map.dispose();
+        }
+    }, [data]);
+
+    useEffect(() => {
+      console.log('render, uten vector');
+      const map = new Map({
+        target: 'map',
+        layers: [
+            new TileLayer({
+                source: new OSM(),
+            }),
+        ],
+        view: new View({
             zoomFactor: 500,
-            center: [2500000, 7500000], // Initial map center coordinates
-            zoom: 0.3825 // Initial zoom level
-          }),
-        });
-    
-        // Clean up when the component unmounts
-        return () => map.dispose();
-    }, []);
+            center: [2500000, 7500000],
+            zoom: 0.3825
+        }),
+      });
+      setRender();
+      return () => map.dispose();
+    }, [])
 
     return (
         <div className={`mapbox transition_mapbox ${dark}`}>

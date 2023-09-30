@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@arcgis/core": "^4.27.6",
+    "@mapbox/polyline": "^1.2.1",
     "axios": "^1.5.1",
     "cors": "^2.8.5",
     "esri-loader": "^3.7.0",
@@ -8,6 +9,7 @@
     "leaflet": "^1.9.4",
     "mapbox-gl": "^2.15.0",
     "ol": "^8.1.0",
+    "polyline": "^0.2.0",
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.16.0"
   }

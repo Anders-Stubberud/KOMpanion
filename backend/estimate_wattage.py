@@ -10,7 +10,7 @@ def estimate_average_wattage(duration_seconds, distance_meters, average_grade, r
     total_resistance_force = gravity_force + rolling_resistance_force + air_resistance_force
     work_done_joules = total_resistance_force * distance_meters
     average_power_watts = work_done_joules / duration_seconds
-    return average_power_watts
+    return average_power_watts if average_power_watts > 0 else 0
 
 def calculate_air_density(altitude_meters, temperature_celsius):
     gas_constant = 287.05 

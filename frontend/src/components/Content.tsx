@@ -27,7 +27,7 @@ function Content({darkmode, toggleDarkmode}:SearchProps) {
             ></Search>
             <div className='mapbox-list'>
                 <List darkmode={darkmode} data={data}></List>
-                <Mapbox darkmode={darkmode}></Mapbox>
+                <Mapbox darkmode={darkmode} data={data}></Mapbox>
             </div>
         </div>
     )
