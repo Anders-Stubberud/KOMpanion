@@ -1,0 +1,14 @@
+.loader
+{
+    margin-top: 2.5vh;
+    margin-left: 1vw;
+}
+/* darkmode */
+.darkmode_loader 
+{
+    color: white;
+}
+.transition_loader
+{
+    transition: color 0.5s ease;
+}

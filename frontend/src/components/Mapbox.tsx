@@ -31,16 +31,21 @@ function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: Search
     const dark = darkmode ? 'darkmode_mapbox' : '';
 
     useEffect(() => {
-          console.log(data);
+          // console.log(data);
           if (previousData != data) {
             setChosenSegment(0);
             setPreviousData(data);
           }
           let lineString = undefined;
+          let lineExtent = [-122518, 5683416, 3300212, 8528073];;
           let coords_render = [2500000, 7500000];
           if (! render && data.length!=0) {
             const decoded = decodePolyline(data[chosenSegment][0].map.polyline);
             lineString = new LineString(decoded.map(coord => fromLonLat(coord)));
+            lineExtent = lineString.getExtent();
+            console.log('- - -');
+            console.log(lineExtent);
+            console.log('- - -');
             coords_render = lineString['flatCoordinates'].slice(0, 2);
 
           }
@@ -77,11 +82,26 @@ function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: Search
                 vectorLayer
             ],
             view: new View({
-                zoomFactor: 500,
+                zoomFactor: 5,
                 center: coords_render,
-                zoom: 1.3
+                zoom: 5
             }),
           });
+
+          const view = map.getView();
+          if (!(! render && data.length!=0)) {
+            view.fit(lineExtent, { padding: [10, 10, 10, 10] });
+            view.setZoom(1.5);
+          }
+          else {
+            const expansionAmount = 2000; 
+            lineExtent[0] -= expansionAmount; 
+            lineExtent[1] -= expansionAmount; 
+            lineExtent[2] += expansionAmount; 
+            lineExtent[3] += expansionAmount;
+            view.fit(lineExtent, { padding: [10, 10, 10, 10] });
+          }
+
           return () => map.dispose();
     }, [data, chosenSegment]);
 

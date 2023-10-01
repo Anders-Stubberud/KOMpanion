@@ -6,17 +6,27 @@ import React from 'react';
 interface SearchProps {
     darkmode: boolean;
     data: [];
+    isLoading: boolean;
+    setIsLoading: (n: boolean) => void;
     setChosenSegment: (i:number) => void;
     chosenSegment: number;
 }
 
-function List({darkmode, data, setChosenSegment, chosenSegment}: SearchProps) 
+function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIsLoading}: SearchProps) 
 {
 
     const dark = darkmode ? 'darkmode_list' : '';
+    const scrolly = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        setIsLoading(false);
+        if (scrolly.current) {
+            scrolly.current.scrollTop = 0;
+        }
+    }, [data])
 
     return (
-        <div className={`listcontainer transition_list ${dark}`}>
+        <div ref={scrolly} className={`listcontainer transition_list ${dark}`}>
             {data.map((segment_data, index) => 
                 <Segments 
                 darkmode={darkmode} 

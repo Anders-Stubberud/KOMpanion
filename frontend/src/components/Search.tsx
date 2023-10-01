@@ -1,5 +1,6 @@
 import '../sheets/Search.css';
 import Suggestions from './Suggestions';
+import Loader from './Loader';
 import { loadModules } from 'esri-loader';
 import { getAutoComplete } from '../utils/locationAutocomplete';
 import axios from 'axios';
@@ -7,13 +8,16 @@ import { useEffect, useState } from 'react';
 
 interface SearchProps {
     darkmode: boolean;
+    data: any;
     setData: (data: any) => void;
     coord: number[]|string;
+    isLoading: boolean;
+    setIsLoading: (n: boolean) => void;
     updateCoord: (n:number[]|string) => void;
     updateChosenSegment: (n:number) => void;
 }
 
-function Search({darkmode, setData, coord, updateCoord, updateChosenSegment}:SearchProps) 
+function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, setIsLoading, isLoading, data}:SearchProps) 
 {
 
     const dark: string = darkmode ? 'darkmode_search' : '';
@@ -28,6 +32,7 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment}:Sea
             alert('Must enter more precise location');
             return;
         }
+        setIsLoading(true);
         const api_url = 'http://localhost:5000/api/fetch_coordinates';
         axios.get(api_url, {
             params: {
@@ -163,6 +168,9 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment}:Sea
                     <button className="enter">
                         <span className={`transition_search ${dark}`} onClick={search}>search</span>
                     </button>
+                </div>
+                <div className='loader'>
+                    <Loader darkmode={darkmode} isLoading={isLoading} data={data}></Loader>
                 </div>
         </div>
     );
