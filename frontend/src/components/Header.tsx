@@ -31,7 +31,7 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
                     className={`kompanion transition_header ${dark}`}>KOMpanion</button>
                     <div className={`transition_header divide ${dark}`}>
                         <p>Segment analyzer</p>
-                        <p className='smalltext'><em>By Anders Stubberud</em></p>
+                        <p><em>By Anders Stubberud</em></p>
                     </div>
                 </div>  
                 <div className='buttons'>
