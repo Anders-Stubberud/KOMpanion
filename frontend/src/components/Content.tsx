@@ -24,7 +24,6 @@ function Content({darkmode, toggleDarkmode}:SearchProps) {
 
     const [chosenSegment, updateChosenSegment] = useState(0);
     const setChosenSegment = (i: any) => {
-        console.log(i);
         updateChosenSegment(i);
     }
 
@@ -33,7 +32,7 @@ function Content({darkmode, toggleDarkmode}:SearchProps) {
     const [coord, updateCoord] = useState<number[]|string>('');
 
     return (
-        <div>
+        <div className="content">
             <Header darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Header>
             <Search
                 data={data}

@@ -3,6 +3,9 @@
     position: relative;
     display: flex;
     align-items: center;
+    @media screen and (max-aspect-ratio: 1/1) {
+        width: 95vw;
+    }
 }
 .change, .counter
 {

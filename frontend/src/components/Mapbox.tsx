@@ -55,9 +55,9 @@ function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: Search
               fill: new Fill({ color: 'red' }),
             }),
           });
-
+          let decoded: number[][] = [];
           if (! render && data.length!=0) {
-            const decoded = decodePolyline(data[chosenSegment][0].map.polyline);
+            decoded = decodePolyline(data[chosenSegment][0].map.polyline);
             lineString = new LineString(decoded.map(coord => fromLonLat(coord)));
             lineExtent = lineString.getExtent();
             coords_render = lineString['flatCoordinates'].slice(0, 2); 
@@ -108,7 +108,6 @@ function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: Search
             lineExtent[2] += expansionAmount; 
             lineExtent[3] += expansionAmount;
             view.fit(lineExtent, { padding: [10, 10, 10, 10] });
-            const decoded = decodePolyline(data[chosenSegment][0].map.polyline);
             const startFeature = new Feature({geometry: new Point(fromLonLat(decoded[0])),});
             startFeature.setStyle(startMarkerStyle);
             const finishFeature = new Feature({geometry: new Point(fromLonLat(decoded[decoded.length - 1])),});

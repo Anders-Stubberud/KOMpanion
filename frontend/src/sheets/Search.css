@@ -1,23 +1,31 @@
-.main 
+.main_search
 {
     position: relative;
     display: flex;
     align-items: center;
-    height: 10vh;
+    /* height: 10vh; */
     margin-top: 4vh;
     margin-bottom: 4vh;
     margin-left: 1vw;
     margin-right: 1vw;
     color: black;
+    @media screen and (max-aspect-ratio: 1/1) {
+        flex-direction: column;
+        margin-bottom: 0vh;
+    }
+}
+.searchelements
+{
+    display: flex;
+    flex-direction: row;
+    @media screen and (max-aspect-ratio: 1/1) {
+        margin-bottom: 2vh;
+    }
 }
 .searchbar, .radius, .enter 
 {
     position: relative;
     margin: 0 1vw;
-    @media (max-width: 600px) 
-    {
-        display: block;
-    }
 }
 .searchbar 
 {
@@ -25,6 +33,9 @@
     width: 10vw;
     font-size: larger;
     font-family: monospace;
+    @media screen and (max-aspect-ratio: 1/1) {
+        width: 50vw;
+    }
 }
 input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button 
 {
@@ -33,6 +44,9 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 .radius
 {
     width: 3vw;
+    @media screen and (max-aspect-ratio: 1/1) {
+        width: 10vw;
+    }
 }
 .searchbar, .radius
 {
@@ -47,12 +61,17 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 .enter
 {
     margin-left: 0;
-    margin-bottom: 0.5vh;
+    margin-bottom: 0;
+    margin-top: -0.375vh;
     font-family: monospace;
     border-style: none;
     height: 5.6vh;
     background-color: transparent;
     border: 2px solid #7f7f7f;
+    @media screen and (max-aspect-ratio: 1/1) {
+        width: 100%;
+        margin-right: 0;
+    }
 }
 .enter:hover
 {

@@ -7,6 +7,10 @@
     margin-left: -1px;
     flex-grow: 1;
     transition: 0.5s ease;
+    @media screen and (max-aspect-ratio: 1/1) {
+        height: 45vh;
+        width: 90vw;
+    }
 }
 /* darkmode */
 .darkmode_mapbox
