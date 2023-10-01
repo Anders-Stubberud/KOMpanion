@@ -5,15 +5,21 @@ import React from 'react';
 interface SearchProps {
     darkmode: boolean;
     segment_data: any;
+    index: number;
+    setChosenSegment: (i:number) => void;
 }
 
-function Segments({darkmode, segment_data}: SearchProps) 
+function Segments({darkmode, segment_data, index, setChosenSegment}: SearchProps) 
 {
 
     const dark = darkmode ? 'darkmode_list' : '';
 
+    function polylineNewSegment() {
+        setChosenSegment(index)
+    }
+
     return (
-        <button className={'segment'}>
+        <button className={'segment'} onClick={polylineNewSegment}>
             <div className='segment_div'>
                 <p><span className='bolds'>Segment name: </span>{segment_data[0].name}</p>
                 <div className='spacer'></div>

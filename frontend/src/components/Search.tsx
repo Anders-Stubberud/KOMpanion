@@ -8,15 +8,18 @@ import { useEffect, useState } from 'react';
 interface SearchProps {
     darkmode: boolean;
     setData: (data: any) => void;
+    coord: number[]|string;
+    updateCoord: (n:number[]|string) => void;
+    updateChosenSegment: (n:number) => void;
 }
 
-function Search({darkmode, setData}:SearchProps) 
+function Search({darkmode, setData, coord, updateCoord, updateChosenSegment}:SearchProps) 
 {
 
     const dark: string = darkmode ? 'darkmode_search' : '';
 
     function search() {
-
+        console.log('punch');
         if (radchange < 1 || radchange > 50) {
             alert("Must have 1 <= radius <= 50")
             return;
@@ -37,7 +40,7 @@ function Search({darkmode, setData}:SearchProps)
         })
     }
 
-    const [coord, updateCoord] = useState<number[]|string>('');
+    // const [coord, updateCoord] = useState<number[]|string>('');
     const setCoord = (coords: number[]|string) => {
         updateCoord(coords);
     }

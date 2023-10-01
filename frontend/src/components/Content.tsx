@@ -13,10 +13,17 @@ interface SearchProps {
 function Content({darkmode, toggleDarkmode}:SearchProps) {
 
     const [data, updateData] = useState<[]>([]);
-    const setData = (data: any) => {
+    const setData = (data: []) => {
         updateData(data);
-        console.log(data);
     }
+
+    const [chosenSegment, updateChosenSegment] = useState(0);
+    const setChosenSegment = (i: any) => {
+        console.log(i);
+        updateChosenSegment(i);
+    }
+
+    const [coord, updateCoord] = useState<number[]|string>('');
 
     return (
         <div>
@@ -24,10 +31,13 @@ function Content({darkmode, toggleDarkmode}:SearchProps) {
             <Search
                 darkmode={darkmode}
                 setData={setData} 
+                coord={coord}
+                updateCoord={updateCoord}
+                updateChosenSegment={updateChosenSegment}
             ></Search>
             <div className='mapbox-list'>
-                <List darkmode={darkmode} data={data}></List>
-                <Mapbox darkmode={darkmode} data={data}></Mapbox>
+                <List darkmode={darkmode} data={data} chosenSegment={chosenSegment} setChosenSegment={setChosenSegment}></List>
+                <Mapbox setChosenSegment={setChosenSegment} darkmode={darkmode} data={data} chosenSegment={chosenSegment} coord={coord}></Mapbox>
             </div>
         </div>
     )

@@ -14,22 +14,35 @@ import VectorSource from 'ol/source/Vector';
 import decodePolyline from '../utils/decode_polyline';
 import Style from 'ol/style/Style';
 import Stroke from 'ol/style/Stroke';
+import { wait } from '@testing-library/user-event/dist/utils';
 
 interface SearchProps {
     darkmode: boolean;
-    data: any;
+    data: any [];
+    chosenSegment: number;
+    setChosenSegment: (n:number) => void;
+    coord: number[]|string;
 }
 
-function Mapbox({ darkmode, data }: SearchProps) {
+function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: SearchProps) {
 
     const [render, updateRender] = useState(true);
+    const [previousData, setPreviousData] = useState<any>([null]);
     const dark = darkmode ? 'darkmode_mapbox' : '';
 
     useEffect(() => {
+          console.log(data);
+          if (previousData != data) {
+            setChosenSegment(0);
+            setPreviousData(data);
+          }
           let lineString = undefined;
-          if (! render) {
-            const decoded = decodePolyline(data[0][0].map.polyline);
+          let coords_render = [2500000, 7500000];
+          if (! render && data.length!=0) {
+            const decoded = decodePolyline(data[chosenSegment][0].map.polyline);
             lineString = new LineString(decoded.map(coord => fromLonLat(coord)));
+            coords_render = lineString['flatCoordinates'].slice(0, 2);
+
           }
           else {
             updateRender(false);
@@ -55,7 +68,6 @@ function Mapbox({ darkmode, data }: SearchProps) {
           const vectorLayer = new VectorLayer({
             source: vectorSource
           });
-
           const map = new Map({
             target: 'map',
             layers: [
@@ -66,12 +78,12 @@ function Mapbox({ darkmode, data }: SearchProps) {
             ],
             view: new View({
                 zoomFactor: 500,
-                center: [2500000, 7500000],
-                zoom: 0.3825
+                center: coords_render,
+                zoom: 1.3
             }),
           });
           return () => map.dispose();
-    }, [data]);
+    }, [data, chosenSegment]);
 
     return (
         <div className={`mapbox transition_mapbox ${dark}`}>
