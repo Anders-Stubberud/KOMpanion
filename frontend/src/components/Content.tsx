@@ -28,6 +28,8 @@ function Content({darkmode, toggleDarkmode}:SearchProps) {
         updateChosenSegment(i);
     }
 
+    const [active, setIsActive] = useState(false);
+
     const [coord, updateCoord] = useState<number[]|string>('');
 
     return (
@@ -38,6 +40,7 @@ function Content({darkmode, toggleDarkmode}:SearchProps) {
                 darkmode={darkmode}
                 setData={setData} 
                 coord={coord}
+                setIsActive={setIsActive}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
                 updateCoord={updateCoord}
@@ -47,6 +50,7 @@ function Content({darkmode, toggleDarkmode}:SearchProps) {
                 <List 
                 darkmode={darkmode} 
                 data={data} 
+                active={active}
                 chosenSegment={chosenSegment} 
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}

@@ -19,9 +19,19 @@
 }
 .transition
 {
-    transition: color 3s ease;
+    transition: color 0.5s ease;
 }
 .transition_list
 {
     transition: color 0.5s ease, border-color 0.5s ease;
+}
+.darkmode_list_potential
+{
+    color: white;
+}
+.transition_potential
+{
+    margin-top: 5vh;
+    text-align: center;
+    transition: color 0.5s ease;
 }

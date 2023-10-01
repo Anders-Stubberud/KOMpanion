@@ -12,12 +12,13 @@ interface SearchProps {
     setData: (data: any) => void;
     coord: number[]|string;
     isLoading: boolean;
+    setIsActive: (n: boolean) => void;
     setIsLoading: (n: boolean) => void;
     updateCoord: (n:number[]|string) => void;
     updateChosenSegment: (n:number) => void;
 }
 
-function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, setIsLoading, isLoading, data}:SearchProps) 
+function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, setIsLoading, isLoading, data, setIsActive}:SearchProps) 
 {
 
     const dark: string = darkmode ? 'darkmode_search' : '';
@@ -55,6 +56,8 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
             return;
         }
         else if (coord == 'NO_HIT') {
+            setIsActive(true);
+            setData([]);
             console.log('Could not find given location')
         }
         else {
@@ -67,6 +70,7 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
                 }
             }).then((response) => {
                 let res = response.data;
+                setIsActive(true);
                 setData(res)
             }).catch((error) => {
                 console.log(error)
