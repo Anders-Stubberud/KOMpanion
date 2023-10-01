@@ -8,13 +8,16 @@ import '../sheets/MapBox.css';
 import VectorLayer from 'ol/layer/Vector';
 import Feature from 'ol/Feature';
 import LineString from 'ol/geom/LineString';
-import { getCenter } from 'ol/extent'; // Import getCenter from ol/extent
+import { getCenter } from 'ol/extent';
 import { fromLonLat } from 'ol/proj';
 import VectorSource from 'ol/source/Vector';
 import decodePolyline from '../utils/decode_polyline';
 import Style from 'ol/style/Style';
 import Stroke from 'ol/style/Stroke';
 import { wait } from '@testing-library/user-event/dist/utils';
+import Circle from 'ol/style/Circle';
+import Fill from 'ol/style/Fill';
+import { Point } from 'ol/geom';
 
 interface SearchProps {
     darkmode: boolean;
@@ -31,7 +34,6 @@ function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: Search
     const dark = darkmode ? 'darkmode_mapbox' : '';
 
     useEffect(() => {
-          // console.log(data);
           if (previousData != data) {
             setChosenSegment(0);
             setPreviousData(data);
@@ -39,23 +41,32 @@ function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: Search
           let lineString = undefined;
           let lineExtent = [-122518, 5683416, 3300212, 8528073];;
           let coords_render = [2500000, 7500000];
+
+          const startMarkerStyle = new Style({
+            image: new Circle({
+              radius: 7.5,
+              fill: new Fill({ color: 'lime' }),
+            }),
+          });
+          
+          const finishMarkerStyle = new Style({
+            image: new Circle({
+              radius: 7.5,
+              fill: new Fill({ color: 'red' }),
+            }),
+          });
+
           if (! render && data.length!=0) {
             const decoded = decodePolyline(data[chosenSegment][0].map.polyline);
             lineString = new LineString(decoded.map(coord => fromLonLat(coord)));
             lineExtent = lineString.getExtent();
-            console.log('- - -');
-            console.log(lineExtent);
-            console.log('- - -');
-            coords_render = lineString['flatCoordinates'].slice(0, 2);
-
+            coords_render = lineString['flatCoordinates'].slice(0, 2); 
           }
           else {
             updateRender(false);
           }
 
-          const feature = new Feature({
-              geometry: lineString,
-          });
+          const feature = new Feature({geometry: lineString,});
 
           const lineStyle = new Style({
             stroke: new Stroke({
@@ -66,13 +77,10 @@ function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: Search
       
           feature.setStyle(lineStyle);
 
-          const vectorSource = new VectorSource({
-            features: [feature]
-          });
+          const vectorSource = new VectorSource({features: [feature]});
 
-          const vectorLayer = new VectorLayer({
-            source: vectorSource
-          });
+          const vectorLayer = new VectorLayer({source: vectorSource});
+
           const map = new Map({
             target: 'map',
             layers: [
@@ -100,6 +108,14 @@ function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: Search
             lineExtent[2] += expansionAmount; 
             lineExtent[3] += expansionAmount;
             view.fit(lineExtent, { padding: [10, 10, 10, 10] });
+            const decoded = decodePolyline(data[chosenSegment][0].map.polyline);
+            const startFeature = new Feature({geometry: new Point(fromLonLat(decoded[0])),});
+            startFeature.setStyle(startMarkerStyle);
+            const finishFeature = new Feature({geometry: new Point(fromLonLat(decoded[decoded.length - 1])),});
+            finishFeature.setStyle(finishMarkerStyle);
+            const markersSource = new VectorSource({features: [startFeature, finishFeature],});
+            const markersLayer = new VectorLayer({source: markersSource});
+            map.addLayer(markersLayer);
           }
 
           return () => map.dispose();
