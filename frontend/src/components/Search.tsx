@@ -24,7 +24,6 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
     const dark: string = darkmode ? 'darkmode_search' : '';
 
     function search() {
-        console.log('punch');
         if (radchange < 1 || radchange > 50) {
             alert("Must have 1 <= radius <= 50")
             return;
@@ -34,17 +33,26 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
             return;
         }
         setIsLoading(true);
-        const api_url = 'http://localhost:5000/api/fetch_coordinates';
+        const api_url = 'https://stubberud.pythonanywhere.com/api/fetch_coordinates';
         axios.get(api_url, {
             params: {
                 location: exactLocation
             }
         }).then((response) => {
-            setCoord(response.data)
+            if (response.data == 'NO_HIT') {
+                if (coord == 'NO_HIT') {
+                    setCoord('NO__HIT') 
+                }
+                else {
+                    setCoord('NO_HIT') 
+                }
+            }
+            else {
+                setCoord(response.data)
+            }
         }).catch((error) => {
             setIsActive(false);
             setIsLoading(false)
-            console.log(error);
         })
     }
 
@@ -53,16 +61,18 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
     }
 
     useEffect(() => {
+        // console.log(coord);
         if (coord == '' || !coord) {
             return;
         }
-        else if (coord == 'NO_HIT') {
+        else if (coord == 'NO_HIT' || coord == 'NO__HIT') {
             setIsActive(true);
+            setIsLoading(false)
             setData([]);
-            console.log('Could not find given location')
+            console.log('NO HIT - fant ikke stedet')
         }
         else {
-            const api_url = 'http://localhost:5000/api/fetch_segments';
+            const api_url = 'https://stubberud.pythonanywhere.com/api/fetch_segments';
             axios.get(api_url, {
                 params: {
                     latitude: coord[0],
@@ -74,8 +84,10 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
                 setIsActive(true);
                 setData(res)
             }).catch((error) => {
-                setIsActive(false);
-                console.log(error)
+                setIsActive(true);
+                setData([]);
+                setIsLoading(false);
+                console.log(error);
             })
         }
     }, [coord])
