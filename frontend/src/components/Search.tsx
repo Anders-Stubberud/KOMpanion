@@ -42,11 +42,12 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
         }).then((response) => {
             setCoord(response.data)
         }).catch((error) => {
+            setIsActive(false);
+            setIsLoading(false)
             console.log(error);
         })
     }
 
-    // const [coord, updateCoord] = useState<number[]|string>('');
     const setCoord = (coords: number[]|string) => {
         updateCoord(coords);
     }
@@ -73,6 +74,7 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
                 setIsActive(true);
                 setData(res)
             }).catch((error) => {
+                setIsActive(false);
                 console.log(error)
             })
         }
@@ -112,7 +114,7 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
     }
 
     const handleDocumentClick = (e: any) => {
-        if (! e.target.classList.contains('suggestion') && !e.target.classList.contains('darkmodeButton')) {
+        if (!e.target.classList.contains('darkmodeButton')) {
             setSuggestions([]);
         }
     }
@@ -159,7 +161,12 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
                         >
                         </input>
                         <div className='suggestions'>
-                            <Suggestions darkmode={darkmode} suggestions={suggestions} setSelectLocation={setSelectLocation}></Suggestions>
+                            <Suggestions 
+                            darkmode={darkmode} 
+                            setSuggestions={setSuggestions}
+                            suggestions={suggestions} 
+                            setSelectLocation={setSelectLocation}
+                            ></Suggestions>
                         </div>
                     </div>
                     <div className='outer'>

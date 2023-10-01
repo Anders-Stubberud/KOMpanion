@@ -5,9 +5,10 @@ interface SearchProps {
     darkmode: boolean;
     suggestions: string [];
     setSelectLocation: (e:any) => void;
+    setSuggestions: (e:any) => void;
 }
 
-function Suggestions({suggestions, darkmode, setSelectLocation}: SearchProps)
+function Suggestions({suggestions, darkmode, setSelectLocation, setSuggestions}: SearchProps)
 {
     function getStringWidth(string: string) {
         const span = document.createElement('span');
@@ -42,6 +43,7 @@ function Suggestions({suggestions, darkmode, setSelectLocation}: SearchProps)
 
     function funcy(e:any) {
         setSelectLocation(e);
+        setSuggestions([]);
     }
 
     const border = suggestions.length > 0 ? 'border' : '';

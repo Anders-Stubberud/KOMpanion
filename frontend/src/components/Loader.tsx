@@ -30,7 +30,7 @@ function Loader({darkmode, isLoading, data}:SearchProps)
         if (isLoading) {
             const intervalId = setInterval(() => {
                 setLoadInfo((prevIndex) => (prevIndex + 1) % loadArray.length);
-            }, 150);
+            }, 300);
     
             return () => clearInterval(intervalId);
         }
