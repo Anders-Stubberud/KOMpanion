@@ -29,7 +29,10 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
                 <div className='intro'>
                     <button onClick={() => handleNavigate(location.pathname, '/')}  
                     className={`kompanion transition_header ${dark}`}>KOMpanion</button>
-                    <p className={`transition_header ${dark}`}><em>Segment analyzer by Anders Stubberud</em></p>
+                    <div className={`transition_header divide ${dark}`}>
+                        <p>Segment analyzer</p>
+                        <p className='smalltext'><em>By Anders Stubberud</em></p>
+                    </div>
                 </div>  
                 <div className='buttons'>
                     <button onClick={() => handleNavigate(location.pathname, '/about')} 

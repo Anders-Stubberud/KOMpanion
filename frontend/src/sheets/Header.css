@@ -7,6 +7,11 @@
         width: 95vw;
     }
 }
+.divide
+{
+    display: flex;
+    flex-direction: column;
+}
 .change, .counter
 {
     position: relative;
@@ -20,6 +25,10 @@
 .intro
 {
     margin-left: 1vw;
+}
+.smalltext
+{
+    
 }
 .aboutButton, .darkmodeButton, .kompanion
 {

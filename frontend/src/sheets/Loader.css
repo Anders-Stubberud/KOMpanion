@@ -1,7 +1,13 @@
-.loader
+.loader_loader
 {
-    margin-top: 2.5vh;
-    margin-left: 1vw;
+    @media screen and (max-aspect-ratio: 1/1) {
+        position: absolute;
+        margin-top: 10.5vh;
+    }
+    @media screen and (min-aspect-ratio: 1/1) {
+        margin-left: 1vw;
+        margin-bottom: 0vh;
+    }
 }
 /* darkmode */
 .darkmode_loader 

@@ -15,7 +15,7 @@ function Loader({darkmode, isLoading, data}:SearchProps)
     const [loadInfo, setLoadInfo] = useState<number>(0);
 
     const loadArray: string [] = [
-        '', 
+        'k', 
         'fetching data.', 'fetching data..', 'fetching data...',
         'crunching numbers.', 'crunching numbers..', 'crunching numbers...',
         'data wrangling.', 'data wrangling..', 'data wrangling...',
@@ -40,7 +40,7 @@ function Loader({darkmode, isLoading, data}:SearchProps)
     }, [isLoading])
 
     return (
-        <h3 className={`loader ${dark}`}>{loadArray[loadInfo]}</h3>
+        <h3 className={`loader_loader ${dark}`}>{loadArray[loadInfo]}</h3>
     );
 }
 

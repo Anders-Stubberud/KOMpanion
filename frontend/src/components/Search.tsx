@@ -176,9 +176,7 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
                     </div>
                 </div>
             </div>
-            <div className='loading'>
-                <Loader darkmode={darkmode} isLoading={isLoading} data={data}></Loader>
-            </div>
+            <Loader darkmode={darkmode} isLoading={isLoading} data={data}></Loader>
         </div>
     );
 }
