@@ -1,8 +1,6 @@
 import '../sheets/Search.css';
 import Suggestions from './Suggestions';
 import Loader from './Loader';
-import { loadModules } from 'esri-loader';
-import { getAutoComplete } from '../utils/locationAutocomplete';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 

@@ -14,7 +14,6 @@ import VectorSource from 'ol/source/Vector';
 import decodePolyline from '../utils/decode_polyline';
 import Style from 'ol/style/Style';
 import Stroke from 'ol/style/Stroke';
-import { wait } from '@testing-library/user-event/dist/utils';
 import Circle from 'ol/style/Circle';
 import Fill from 'ol/style/Fill';
 import { Point } from 'ol/geom';
