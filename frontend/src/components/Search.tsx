@@ -187,8 +187,8 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
                     </div>
                     <div className='outer'>
                         <br></br>
-                        <button className="enter">
-                            <span className={`transition_search ${dark}`} onClick={search}>search</span>
+                        <button className="enter" onClick={search}>
+                            <span className={`transition_search ${dark}`}>search</span>
                         </button>
                     </div>
                 </div>
