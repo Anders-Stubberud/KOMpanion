@@ -1,0 +1,60 @@
+.content_about
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    @media screen and (min-aspect-ratio: 1/1) {
+        width: 60vw;
+    }
+}
+.powercurves
+{
+    display: flex;
+    @media screen and (min-aspect-ratio: 1/1) {
+        flex-direction: row;
+    }
+    @media screen and (max-aspect-ratio: 1/1) {
+        flex-direction: column;
+    }
+}
+.curves
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.images
+{
+    @media screen and (min-aspect-ratio: 1/1) {
+        height: 30vh;
+        width: 30vw;
+    }
+    @media screen and (max-aspect-ratio: 1/1) {
+        width: 90vw;
+        height: 20vh;
+    }
+}
+.spacer_about
+{
+    margin-top: 5vh;
+    @media screen and (min-aspect-ratio: 1/1) { 
+        display: flex;
+        justify-content: center;
+    }
+}
+.sub
+{
+    margin-top: 0;
+    margin-bottom: 1vh;
+}
+.subsub
+{
+    margin-bottom: 3vh;
+}
+/* darkmode */
+.darkmode_about
+{
+    color: white;
+    transition: color 0.5s ease;
+}
