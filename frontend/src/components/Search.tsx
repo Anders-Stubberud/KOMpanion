@@ -158,39 +158,37 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
 
     return (
         <div className="main_search">
-            <div>
-                <div className='searchelements'>
-                    <div className='outer'>
-                        <p className={`transition_search ${dark}`}>location</p>
-                        <input 
-                        type="text" 
-                        id='loc'
-                        value={location}
-                        className="searchbar"
-                        onChange={handleInputChange}
-                        >
-                        </input>
-                        <div className='suggestions'>
-                            <Suggestions 
-                            darkmode={darkmode} 
-                            setSuggestions={setSuggestions}
-                            suggestions={suggestions} 
-                            setSelectLocation={setSelectLocation}
-                            ></Suggestions>
-                        </div>
+            <div className='searchelements'>
+                <div className='outer'>
+                    <p className={`transition_search ${dark}`}>location</p>
+                    <input 
+                    type="text" 
+                    id='loc'
+                    value={location}
+                    className="searchbar"
+                    onChange={handleInputChange}
+                    >
+                    </input>
+                    <div className='suggestions'>
+                        <Suggestions 
+                        darkmode={darkmode} 
+                        setSuggestions={setSuggestions}
+                        suggestions={suggestions} 
+                        setSelectLocation={setSelectLocation}
+                        ></Suggestions>
                     </div>
-                    <div className='outer'>
-                        <p className={`transition_search ${dark}`}>
-                            radius
-                        </p>
-                        <input value={radchange} onChange={setRadChange} type="number" className="radius"></input>
-                    </div>
-                    <div className='outer'>
-                        <br></br>
-                        <button className="enter" onClick={search}>
-                            <span className={`transition_search ${dark}`}>search</span>
-                        </button>
-                    </div>
+                </div>
+                <div className='outer'>
+                    <p className={`transition_search ${dark}`}>
+                        radius
+                    </p>
+                    <input value={radchange} onChange={setRadChange} type="number" className="radius"></input>
+                </div>
+                <div className='outer'>
+                    <br></br>
+                    <button className="enter" onClick={search}>
+                        <span className={`transition_search ${dark}`}>search</span>
+                    </button>
                 </div>
             </div>
             <Loader darkmode={darkmode} isLoading={isLoading} data={data}></Loader>
