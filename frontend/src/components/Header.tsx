@@ -24,7 +24,7 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
     const mode = darkmode ? 'lightmode' : 'darkmode';
 
     return (
-        <div>
+        <div className='outer_header'>
             <div className='header'>
                 <div className='intro'>
                     <button onClick={() => handleNavigate(location.pathname, '/')}  
@@ -44,7 +44,6 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
                     </button>
                 </div>  
             </div>
-            <hr className={`hr transition_header ${dark}`}></hr>
         </div>
     );
 }

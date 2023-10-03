@@ -1,12 +1,25 @@
+.main_about
+{
+    display: flex;
+    justify-content: center;
+}
+.inner_about
+{
+    @media screen and (min-aspect-ratio: 1/1) {
+        width: 60vw;
+    }
+
+    @media screen and (max-aspect-ratio: 1/1) {
+        width: 90vw;
+    }
+}
 .content_about
 {
+    margin-top: 5vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    @media screen and (min-aspect-ratio: 1/1) {
-        width: 60vw;
-    }
 }
 .link_about
 {
@@ -54,7 +67,11 @@
 }
 .subsub
 {
-    margin-bottom: 3vh;
+    margin-bottom: 5vh;
+}
+.bottom
+{
+    margin-bottom: 15vh;
 }
 /* darkmode */
 .darkmode_about

@@ -1,12 +1,8 @@
 .mapbox 
 {
-    border-width: 2px;
-    border-color: black;
-    border-style: solid;
-    margin-right: 0vw;
-    margin-left: -1px;
     flex-grow: 1;
     transition: 0.5s ease;
+    height: 100%;
     @media screen and (max-aspect-ratio: 1/1) {
         height: 45vh;
         width: 90vw;

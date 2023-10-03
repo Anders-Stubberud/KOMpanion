@@ -3,11 +3,8 @@
     position: relative;
     display: flex;
     align-items: center;
-    /* height: 10vh; */
-    margin-top: 4vh;
-    margin-bottom: 4vh;
-    margin-left: 1vw;
-    margin-right: 1vw;
+    margin-top: 7.5vh;
+    margin-bottom: 5vh;
     color: black;
     @media screen and (max-aspect-ratio: 1/1) {
         flex-direction: column;

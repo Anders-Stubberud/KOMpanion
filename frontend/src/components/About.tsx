@@ -1,6 +1,4 @@
 import Header from "./Header";
-// import '../resources/';
-// import absolute_curve from '../resources';
 import '../sheets/About.css';
 
 interface SearchProps {
@@ -15,9 +13,9 @@ function About({darkmode, toggleDarkmode}:SearchProps)
     const link = !darkmode ? 'link_about' : '';
 
     return (
-        <div>
+        <div className="main_about">
+            <div className="inner_about">
             <Header darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Header>
-            <div className="spacer_about">
                 <div className={`content_about ${dark}`}>
 
                     <h3 className={`sub`}>Creator</h3>
@@ -74,9 +72,9 @@ function About({darkmode, toggleDarkmode}:SearchProps)
                             <em>realtive power curve</em>
                         </div>
                     </div>
-
+                    
                     <h3 className={`sub`}>Technical overview</h3>
-                    <p className={`subsub`}>
+                    <p className="subsub bottom">
                         All code for this program is available in <a 
                         className={`${link} ${dark}`}
                         href="https://github.com/Anders-Stubberud/KOMpanion/tree/main" target="_blank">this github repo</a>.

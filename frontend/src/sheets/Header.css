@@ -3,9 +3,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    @media screen and (max-aspect-ratio: 1/1) {
-        width: 95vw;
-    }
+    justify-content: space-between;
 }
 .divide
 {
@@ -15,8 +13,6 @@
 .change, .counter
 {
     position: relative;
-    left: 65vw;
-    margin: 0.75%;
     border: none;
     font-size: x-large;
     font-family: monospace;
@@ -37,11 +33,6 @@
 {
     padding-right: 0;
 }
-.buttons
-{
-    margin-right: 1vw;
-    margin-left: auto;
-}
 .aboutButton:hover, .darkmodeButton:hover
 {
     font-weight: bolder;
@@ -54,15 +45,6 @@
 .kompanion:hover
 {
     font-weight: bold;
-}
-h2
-{
-    margin: 0;
-    font-family: monospace;
-}
-.hr
-{
-    border: 1px solid black;
 }
 /* darkmode */
 .darkmode_header
