@@ -59,13 +59,14 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
     const setCoord = (coords: number[]|string) => {
         updateCoord(coords);
     }
-    let first: boolean = true;
-    const [fir, setFir] = useState<boolean>(true);
+    // let first: boolean = true;
+    // const [fir, setFir] = useState<boolean>(true);
+    // (first && fir)
 
     useEffect(() => {
-        if (coord == '' || !coord || (first && fir)) {
-            first = false;
-            setFir(false);
+        if (coord == '' || !coord) {
+            // first = false;
+            // setFir(false);
             return;
         }
         else if (coord == 'NO_HIT' || coord == 'NO__HIT') {
