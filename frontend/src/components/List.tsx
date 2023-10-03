@@ -3,6 +3,7 @@ import Segments from './Segments';
 import '../sheets/List.css'
 import '../index.css'
 import React from 'react';
+import { Skeleton, SkeletonCircle, SkeletonText, Stack } from '@chakra-ui/react'
 
 interface SearchProps {
     darkmode: boolean;
@@ -42,7 +43,24 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
                 )) 
             :   !active?
                 (
-                    <h1 className=''>teste</h1>
+                    <Stack padding={4} spacing={1} marginTop={4}>
+                        <Skeleton height='28'>
+                        </Skeleton>
+                        <Skeleton
+                        marginTop={2.75}
+                        marginBottom={2.75}
+                        height='28'
+                        color='grey'
+                        fadeDuration={1}
+                        >
+                        </Skeleton>
+                        <Skeleton
+                        height='28'
+                        fadeDuration={4}
+                        color='grey'
+                        >
+                        </Skeleton>
+                    </Stack>
                 )
             :   (
                     <h3 className={`transition_potential ${darkm}`}>

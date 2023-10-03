@@ -5,7 +5,7 @@ import Content from './Content';
 import '../index.css'
 import { Dispatch, SetStateAction } from 'react';
 import React from 'react';
-import {NextUIProvider} from "@nextui-org/react";
+import { ChakraProvider } from '@chakra-ui/react';
 
 function App() 
 {
@@ -24,14 +24,16 @@ function App()
   }
 
   return (
-      <NextUIProvider>
-        <Router>
-          <Routes>
-            <Route path='/' element={<Content darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Content>}></Route>
-            <Route path='/about' element={<About darkmode={darkmode} toggleDarkmode={toggleDarkmode}></About>}></Route>
-          </Routes>
-        </Router>
-      </NextUIProvider>
+    <div className='app'>
+        <ChakraProvider>
+          <Router>
+            <Routes>
+              <Route path='/' element={<Content darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Content>}></Route>
+              <Route path='/about' element={<About darkmode={darkmode} toggleDarkmode={toggleDarkmode}></About>}></Route>
+            </Routes>
+          </Router>
+        </ChakraProvider>
+      </div>
   );
 }
 

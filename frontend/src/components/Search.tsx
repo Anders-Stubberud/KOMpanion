@@ -61,7 +61,6 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
     }
 
     useEffect(() => {
-        // console.log(coord);
         if (coord == '' || !coord) {
             return;
         }

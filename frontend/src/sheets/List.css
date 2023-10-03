@@ -1,37 +1,35 @@
-.listcontainer
+.listcontainer {
+  transition: 0.5s ease;
+  position: relative;
+  overflow: auto;
+  @media screen and (min-aspect-ratio: 1/1) {
+    width: 37.5%;
+  }
+  @media screen and (max-aspect-ratio: 1/1) {
+    width: 90vw;
+    height: 20vh;
+  }
+  border: 2px solid gray;
+}
+.skeletons
 {
-    transition: 0.5s ease;
     position: relative;
-    overflow: auto;
-    @media screen and (min-aspect-ratio: 1/1) {
-        width: 37.5%;
-    }
-    @media screen and (max-aspect-ratio: 1/1) {
-        width: 90vw;
-        height: 20vh;
-    }
-    border: 2px solid gray;
 }
 /* darkmode */
-.darkmode_list
-{
-    border-color: white;
+.darkmode_list {
+  border-color: white;
 }
-.transition
-{
-    transition: color 0.5s ease;
+.transition {
+  transition: color 0.5s ease;
 }
-.transition_list
-{
-    transition: color 0.5s ease, border-color 0.5s ease;
+.transition_list {
+  transition: color 0.5s ease, border-color 0.5s ease;
 }
-.darkmode_list_potential
-{
-    color: white;
+.darkmode_list_potential {
+  color: white;
 }
-.transition_potential
-{
-    margin-top: 5vh;
-    text-align: center;
-    transition: color 0.5s ease;
+.transition_potential {
+  margin-top: 5vh;
+  text-align: center;
+  transition: color 0.5s ease;
 }
