@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Segments from './Segments';
 import '../sheets/List.css'
+import '../index.css'
 import React from 'react';
-import SkeletonLoader from './SkeletonLoader';
 
 interface SearchProps {
     darkmode: boolean;
@@ -42,7 +42,7 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
                 )) 
             :   !active?
                 (
-                    <SkeletonLoader></SkeletonLoader>
+                    <h1 className="text-3xl font-bold underline">teste</h1>
                 )
             :   (
                     <h3 className={`transition_potential ${darkm}`}>
