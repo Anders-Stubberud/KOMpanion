@@ -8,6 +8,10 @@
         width: 60vw;
     }
 }
+.link_about
+{
+    color: black;
+}
 .powercurves
 {
     display: flex;

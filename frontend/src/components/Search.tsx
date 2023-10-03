@@ -133,7 +133,7 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
 
         document.addEventListener('click', handleDocumentClick);
 
-        if (location.length > 1) {
+        if (location.length > 1 && location!=exactLocation.slice(0, exactLocation.indexOf(','))) {
             const token = "AAPK12f0f22fbf4c4417b38d8ec96ccd5b34Sx1eaIuw5mRwzMv5Imvs-Z7LlYvbsUpgCMLzktGWeINH_ZeXo8QcMDnk-jcUO90t";
             const url = `https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest?text=${location}&f=json&token=${token}`;
             let sug_arr: string[] = [];
