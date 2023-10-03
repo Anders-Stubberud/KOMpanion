@@ -10,6 +10,17 @@
         align-items: center;
     }
 }
+.placeholder
+{
+    width: 60vw;
+    @media screen and (min-aspect-ratio: 1/1) {
+        width: 60vw;
+    }
+
+    @media screen and (max-aspect-ratio: 1/1) {
+        width: 90vw;
+    }
+}
 .mapbox-list
 {
     display: flex;
