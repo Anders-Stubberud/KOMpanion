@@ -1,9 +1,18 @@
 .content
 {
+    display: flex;
+    @media screen and (min-aspect-ratio: 1/1) {
+        justify-content: center;
+    }
     @media screen and (max-aspect-ratio: 1/1) {
-        display: flex;
         flex-direction: column;
         align-items: center;
+    }
+}
+.inner_content
+{
+    @media screen and (min-aspect-ratio: 1/1) {
+        width: 75vw;
     }
 }
 .mapbox-list

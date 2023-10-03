@@ -33,34 +33,36 @@ function Content({darkmode, toggleDarkmode}:SearchProps) {
 
     return (
         <div className="content">
-            <Header darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Header>
-            <Search
-                data={data}
-                darkmode={darkmode}
-                setData={setData} 
-                coord={coord}
-                setIsActive={setIsActive}
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-                updateCoord={updateCoord}
-                updateChosenSegment={updateChosenSegment}
-            ></Search>
-            <div className='mapbox-list'>
-                <List 
-                darkmode={darkmode} 
-                data={data} 
-                active={active}
-                chosenSegment={chosenSegment} 
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-                setChosenSegment={setChosenSegment}
-                ></List>
-                <Mapbox 
-                setChosenSegment={setChosenSegment} 
-                darkmode={darkmode} data={data} 
-                chosenSegment={chosenSegment} 
-                coord={coord}
-                ></Mapbox>
+            <div className="inner_content">
+                <Header darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Header>
+                <Search
+                    data={data}
+                    darkmode={darkmode}
+                    setData={setData} 
+                    coord={coord}
+                    setIsActive={setIsActive}
+                    isLoading={isLoading}
+                    setIsLoading={setIsLoading}
+                    updateCoord={updateCoord}
+                    updateChosenSegment={updateChosenSegment}
+                ></Search>
+                <div className='mapbox-list'>
+                    <List 
+                    darkmode={darkmode} 
+                    data={data} 
+                    active={active}
+                    chosenSegment={chosenSegment} 
+                    isLoading={isLoading}
+                    setIsLoading={setIsLoading}
+                    setChosenSegment={setChosenSegment}
+                    ></List>
+                    <Mapbox 
+                    setChosenSegment={setChosenSegment} 
+                    darkmode={darkmode} data={data} 
+                    chosenSegment={chosenSegment} 
+                    coord={coord}
+                    ></Mapbox>
+                </div>
             </div>
         </div>
     )

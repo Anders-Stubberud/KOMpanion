@@ -23,14 +23,14 @@ function App()
   }
 
   return (
-      <ChakraProvider>
+      <div>
         <Router>
           <Routes>
             <Route path='/' element={<Content darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Content>}></Route>
             <Route path='/about' element={<About darkmode={darkmode} toggleDarkmode={toggleDarkmode}></About>}></Route>
           </Routes>
         </Router>
-      </ChakraProvider>
+      </div>
   );
 }
 

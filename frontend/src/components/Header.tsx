@@ -44,7 +44,6 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
                     </button>
                 </div>  
             </div>
-            <hr className={`hr transition_header ${dark}`}></hr>
         </div>
     );
 }
