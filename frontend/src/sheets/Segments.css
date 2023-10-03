@@ -13,6 +13,8 @@
 }
 .segment_div
 {
+    border: 1px solid black;
+    margin: -1px;
     padding: 0;
     text-align: left;
 }
@@ -24,4 +26,16 @@
 .segment:hover
 {
     font-weight: bold;
+}
+/* darkmode */
+.darkmode_segment
+{
+    border-color: white;
+    color: white;
+    transition: color 0.5s ease;
+}
+.dark_border
+{
+    border-color: white;
+    transition: border-color 0.5s ease;
 }

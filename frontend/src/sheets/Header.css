@@ -1,54 +1,51 @@
-.header 
-{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.divide
-{
-    display: flex;
-    flex-direction: column;
+.divide {
+  display: flex;
+  flex-direction: column;
 }
-.change, .counter
-{
-    position: relative;
-    border: none;
-    font-size: x-large;
-    font-family: monospace;
-    font-weight: bold;
+.aboutButton {
+  margin-right: 1vw;
 }
-.aboutButton, .darkmodeButton, .kompanion
-{
-    border: none;
-    background-color: transparent;
-    font-family: monospace;
-    font-size: larger;
+.change,
+.counter {
+  position: relative;
+  border: none;
+  font-size: x-large;
+  font-family: monospace;
+  font-weight: bold;
 }
-.darkmodeButton
-{
-    padding-right: 0;
+.aboutButton,
+.darkmodeButton,
+.kompanion {
+  border: none;
+  background-color: transparent;
+  font-family: monospace;
+  font-size: larger;
 }
-.aboutButton:hover, .darkmodeButton:hover
-{
-    font-weight: bolder;
+.darkmodeButton {
+  padding-right: 0;
 }
-.kompanion
-{
-    font-size: 145%;
-    padding-left: 0;
+.aboutButton:hover,
+.darkmodeButton:hover {
+  font-weight: bolder;
 }
-.kompanion:hover
-{
-    font-weight: bold;
+.kompanion {
+  font-size: 145%;
+  padding-left: 0;
+}
+.kompanion:hover {
+  font-weight: bold;
 }
 /* darkmode */
-.darkmode_header
-{
-    color: white;
-    border-color: white;
+.darkmode_header {
+  color: white;
+  border-color: white;
 }
-.transition_header
-{
-    transition: color 0.5s ease, border-color 0.5s ease;
+.transition_header {
+  transition: color 0.5s ease, border-color 0.5s ease;
 }

@@ -36,7 +36,7 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
                 </div>  
                 <div className='buttons'>
                     <button onClick={() => handleNavigate(location.pathname, '/about')} 
-                        className={`aboutButton ${dark}`}>
+                        className={`aboutButton ${dark} `}>
                         <span className={`transition_header ${dark}`}>About</span>
                     </button>
                     <button onClick={() => toggleDarkmode()}  className={`darkmodeButton transition_header ${dark}`}>

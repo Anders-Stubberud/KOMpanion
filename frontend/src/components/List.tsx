@@ -42,7 +42,7 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
                 )) 
             :   !active?
                 (
-                    <h1>teste</h1>
+                    <h1 className=''>teste</h1>
                 )
             :   (
                     <h3 className={`transition_potential ${darkm}`}>

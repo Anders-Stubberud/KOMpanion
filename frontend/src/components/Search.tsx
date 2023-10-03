@@ -2,6 +2,8 @@ import '../sheets/Search.css';
 import Suggestions from './Suggestions';
 import Loader from './Loader';
 import axios from 'axios';
+import '../index.css'
+// import {Input} from "@nextui-org/react";
 import { useEffect, useState } from 'react';
 
 interface SearchProps {
@@ -182,10 +184,16 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
                     <p className={`transition_search ${dark}`}>
                         radius
                     </p>
-                    <input value={radchange} onChange={setRadChange} type="number" className="radius"></input>
+                    <input 
+                    type="text" 
+                    value={radchange}
+                    className="radiusss"
+                    onChange={setRadChange}
+                    >
+                    </input>
                 </div>
-                <div className='outer'>
-                    <br></br>
+                <div className='outer scuffed'>
+                    <p>&nbsp;</p>
                     <button className="enter" onClick={search}>
                         <span className={`transition_search ${dark}`}>search</span>
                     </button>

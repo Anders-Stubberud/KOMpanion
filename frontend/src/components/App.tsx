@@ -2,6 +2,7 @@ import About from './About'
 import '../sheets/App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Content from './Content';
+import '../index.css'
 import { Dispatch, SetStateAction } from 'react';
 import React from 'react';
 import {NextUIProvider} from "@nextui-org/react";

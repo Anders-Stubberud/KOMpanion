@@ -10,7 +10,7 @@ function About({darkmode, toggleDarkmode}:SearchProps)
 {
 
     const dark = darkmode ? 'darkmode_about' : '';
-    const link = !darkmode ? 'link_about' : '';
+    const link = !darkmode ? 'link_about' : 'link_darkmode';
 
     return (
         <div className="main_about">

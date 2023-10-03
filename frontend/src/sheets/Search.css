@@ -1,121 +1,129 @@
-.main_search
-{
-    position: relative;
+.main_search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 7.5vh;
+  margin-bottom: 5vh;
+  color: black;
+  @media screen and (max-aspect-ratio: 1/1) {
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 7vh;
+  }
+}
+.searchelements {
+  @media screen and (max-aspect-ratio: 1/1) {
+    width: 100%;
     display: flex;
-    align-items: center;;
-    margin-top: 7.5vh;
-    margin-bottom: 5vh;
-    color: black;
-    @media screen and (max-aspect-ratio: 1/1) {
-        flex-direction: column;
-        justify-content: center;
-        margin-bottom: 7vh;
-    }
+    justify-content: space-between;
+  }
 }
-.searchelements
-{
-    @media screen and (max-aspect-ratio: 1/1) {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
+.searchelements {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  @media screen and (min-aspect-ratio: 1/1) {
+    width: 37.5%;
+  }
+  @media screen and (max-aspect-ratio: 1/1) {
+    margin-bottom: 2vh;
+  }
 }
-.searchelements
-{
-    display: flex;
-    flex-direction: row;
-    @media screen and (max-aspect-ratio: 1/1) {
-        margin-bottom: 2vh;
-    }
+.outer {
+  @media screen and (min-aspect-ratio: 1/1) {
+    margin-right: 0vw;
+  }
 }
-.outer
-{
-    @media screen and (min-aspect-ratio: 1/1) {
-        margin-right: 1vw;
-    }
+.searchbar,
+.radiusss,
+.enter {
+  position: relative;
 }
-.searchbar, .radius, .enter 
-{
-    position: relative;
+.searchbar {
+  border-radius: 0.5vw;
+  margin-left: 0;
+  margin-left: 0;
+  width: 11vw;
+  font-size: larger;
+  font-family: monospace;
+  @media screen and (max-aspect-ratio: 1/1) {
+    width: 50vw;
+  }
 }
-.searchbar 
-{
-    margin-left: 0;
-    margin-left: 0;
-    width: 10vw;
-    font-size: larger;
-    font-family: monospace;
-    @media screen and (max-aspect-ratio: 1/1) {
-        width: 50vw;
-    }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
 }
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button 
-{
-    appearance: none;
+.radiusss {
+  border-radius: 0.5vw;
+  width: 5vw;
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 1vw;
+  padding-top: 0;
+  border: 2px solid #7f7f7f;
+  height: 5vh;
+  padding-left: 1.5vw;
+  padding-right: 1vw;
+  @media screen and (max-aspect-ratio: 1/1) {
+    width: 20vw;
+    border-radius: 2.5vw;
+  }
 }
-.radius
-{
-    width: 3vw;
-    @media screen and (max-aspect-ratio: 1/1) {
-        width: 10vw;
-    }
+.searchbar {
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 1vw;
+  padding-top: 0;
+  border: 2px solid #7f7f7f;
+  height: 5vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  @media screen and (max-aspect-ratio: 1/1) {
+    border-radius: 2.5vw;
+  }
 }
-.searchbar, .radius
-{
-    margin-left: 0;
-    margin-top: 0;
-    padding-top: 0;
-    border: 2px solid #7f7f7f;
-    height: 5vh;
-    padding-left: 2vw;
-    padding-right: 2vw;
+.enter {
+  border-radius: 0.5vw;
+  margin-left: 0;
+  margin-right: 0;
+  font-family: monospace;
+  height: 5vh;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  background-color: transparent;
+  border: 2px solid #7f7f7f;
+  @media screen and (max-aspect-ratio: 1/1) {
+    border-radius: 2.5vw;
+    width: 100%;
+    margin-right: 0;
+  }
 }
-.enter
-{
-    margin-left: 0;
-    margin-bottom: 0;
-    margin-top: -0.375vh;
-    font-family: monospace;
-    border-style: none;
-    height: 5.6vh;
-    background-color: transparent;
-    border: 2px solid #7f7f7f;
-    @media screen and (max-aspect-ratio: 1/1) {
-        width: 100%;
-        margin-right: 0;
-    }
+.enter:hover {
+  font-weight: bold;
 }
-.enter:hover
-{
-    font-weight: bold;
+.enter:active {
+  background-color: #7f7f7f;
 }
-.enter:active
-{
-    background-color: #7f7f7f;
+p {
+  font-family: monospace;
+  margin: 0;
 }
-p
-{
-    font-family: monospace;
-    margin: 0;
+.suggestions {
+  position: absolute;
+  margin-top: 0.5vh;
+  z-index: 1;
 }
-.suggestions
-{
-    position: absolute;
-    margin-top: 0.5vh;
-    z-index: 1;
-}
-.radmax
-{
-    font-size: x-small;
-    margin-left: 0.2vw;
-    display: block;
+.radmax {
+  font-size: x-small;
+  margin-left: 0.2vw;
+  display: block;
 }
 /* darkmode */
-.darkmode_search 
-{
-    color: white;
+.darkmode_search {
+  color: white;
 }
-.transition_search
-{
-    transition: color 0.5s ease, border-color 0.5s ease;
+.transition_search {
+  transition: color 0.5s ease, border-color 0.5s ease;
 }
