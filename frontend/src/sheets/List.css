@@ -1,7 +1,7 @@
 .listcontainer
 {
     transition: 0.5s ease;
-    /* position: relative; */
+    position: relative;
     overflow: auto;
     @media screen and (min-aspect-ratio: 1/1) {
         width: 37.5%;

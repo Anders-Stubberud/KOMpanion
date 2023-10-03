@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Content from './Content';
 import { Dispatch, SetStateAction } from 'react';
 import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 function App() 
 {
