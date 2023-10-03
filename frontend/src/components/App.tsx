@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Content from './Content';
 import { Dispatch, SetStateAction } from 'react';
 import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 function App() 
 {
@@ -22,14 +23,14 @@ function App()
   }
 
   return (
-      <div>
+      <ChakraProvider>
         <Router>
           <Routes>
             <Route path='/' element={<Content darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Content>}></Route>
             <Route path='/about' element={<About darkmode={darkmode} toggleDarkmode={toggleDarkmode}></About>}></Route>
           </Routes>
         </Router>
-      </div>
+      </ChakraProvider>
   );
 }
 

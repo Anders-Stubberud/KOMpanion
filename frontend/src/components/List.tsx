@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Segments from './Segments';
 import '../sheets/List.css'
 import React from 'react';
+import SkeletonLoader from './SkeletonLoader';
 
 interface SearchProps {
     darkmode: boolean;
@@ -41,9 +42,7 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
                 )) 
             :   !active?
                 (
-                    <h3 className={`transition_potential ${darkm}`}>
-                        Enter location to view segments
-                    </h3>
+                    <SkeletonLoader></SkeletonLoader>
                 )
             :   (
                     <h3 className={`transition_potential ${darkm}`}>
