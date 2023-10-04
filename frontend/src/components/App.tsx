@@ -16,7 +16,7 @@ function App()
       document.body.style.transition = `background-color ${transitionDuration}ms ease-in-out`;
       if (darkmode)
       {
-        document.body.style.backgroundColor = '#e8e8e8';
+        document.body.style.backgroundColor = '#ffffff';
       }
       else 
       {

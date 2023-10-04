@@ -8,6 +8,9 @@
         width: 90vw;
     }
 }
+.mappy {
+    border-radius: 90%;
+}
 /* darkmode */
 .darkmode_mapbox
 {

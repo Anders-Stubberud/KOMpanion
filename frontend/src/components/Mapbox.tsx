@@ -121,7 +121,7 @@ function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: Search
 
     return (
         <div className={`mapbox transition_mapbox ${dark}`}>
-            <div id="map" style={{ width: '100%', height: '100%' }}></div>
+            <div id="map" className='mappy' style={{ width: '100%', height: '100%' }}></div>
         </div>
     );
 }

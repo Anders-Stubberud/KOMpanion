@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Heading } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import Segments from './Segments';
 import '../sheets/List.css'
 import '../index.css'
@@ -30,9 +31,9 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
         }
     }, [data])
     
-    return (
+    return (    
         <div id='scrolldiv' ref={scrolly} className={`listcontainer transition_list ${dark}`}>
-            {data.length!=0 ?  
+            {data.length!=0 ?
                 (data.map((segment_data, index) => 
                     <Segments 
                     darkmode={darkmode} 

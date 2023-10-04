@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import '../sheets/Segments.css'
 import React from 'react';
 
@@ -23,7 +24,7 @@ function Segments({darkmode, segment_data, index, setChosenSegment}: SearchProps
 
     return (
         <button className={`segment`} onClick={polylineNewSegment}>
-            <div className={`segment_div ${darkm} ${d}`}>
+            <Box className={`segment_div ${darkm} ${d}`}>
                 <Text className={`${dark} ${d}`}><span className='bolds'>Segment name: </span>{segment_data[0].name}</Text>
                 <div className='spacer'></div>
                 <Text className={`${dark} ${d}`}><span className='bolds'>Difficulty: </span>{segment_data[1][0]}% relative power</Text>
@@ -38,7 +39,7 @@ function Segments({darkmode, segment_data, index, setChosenSegment}: SearchProps
                     {`https://www.strava.com/segments/${segment_data[0].id}`}
                 </a>
                 </Text>
-            </div>
+            </Box>
         </button>
     );
 }
