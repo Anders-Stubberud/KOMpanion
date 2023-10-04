@@ -30,7 +30,8 @@
     transition: border-color 0.5s ease;
     width: 99%;
     border-radius: 1vw;
-    border: 1px solid #1c1c1d;
+    /* border: 2px solid #1c1c1d; */
+    border: 2px solid #7f7f7f;
     margin: 2px;
     padding: 0;
     text-align: left;
@@ -58,10 +59,5 @@
 /* darkmode */
 .darkmode_segment
 {
-    border-color: #e8e8e8;
     color: #e8e8e8;
-}
-.dark_border
-{
-    border-color: #e8e8e8;
 }

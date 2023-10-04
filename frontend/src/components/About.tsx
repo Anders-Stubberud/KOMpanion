@@ -1,6 +1,8 @@
 import Header from "./Header";
 import '../sheets/About.css';
 import { Text } from '@chakra-ui/react'
+import { Heading } from '@chakra-ui/react'
+import { Highlight } from '@chakra-ui/react'
 
 interface SearchProps {
     darkmode: boolean;
@@ -20,16 +22,16 @@ function About({darkmode, toggleDarkmode}:SearchProps)
             <Header darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Header>
                 <div className={`content_about ${dark} ${t}`}>
 
-                    <h3 className={`sub`}>Creator</h3>
-                    <Text className={`subsub`}>
+                    <Heading as='h3' size='lg' className={`sub`}>Creator</Heading>
+                    <Text className={`subsub`} fontSize='sm'>
                         This program is created by Anders Stubberud,
                         an eager cyclist and second year computer science student
                         at <a className={`${link} ${dark} ${t}`} href="https://www.ntnu.edu/" target="_blank">NTNU</a>.
                     </Text>
         
-                    <h3 className={`sub`}>Limitations in precision</h3>
-                    <h4 className={`sub`}>Estimating wattage</h4>
-                    <p className={`subsub`}>
+                    <Heading as='h3' size='lg' className={`sub`}>Limitations in precision</Heading>
+                    <Heading as='h4' size='md' className={`sub`}>Estimating wattage</Heading>
+                    <Text className={`subsub`} fontSize='sm'>
                         Since the Strava API v3 does not provide wattage for the KOM of a given segment, 
                         i had to make a script for calculating it based on the metrics which are provided. 
                         The relevant metrics for this calculation were time, distance, and average gradient. 
@@ -39,9 +41,9 @@ function About({darkmode, toggleDarkmode}:SearchProps)
                         From there, textbook formulas has been used to determine the wattage.
                         Since the calculation assumes linearity in the gradient, 
                         it is not entirely accurate, yet it provides an estimation.
-                    </p>
-                    <h4 className={`sub`}>Determining relative percentage</h4>
-                    <p className={`subsub`}>
+                    </Text>
+                    <Heading as='h4' size='md' className={`sub`}>Determining relative percentage</Heading>
+                    <Text className={`subsub`} fontSize='sm'>
                         Comparison of segments requires a way to compare the KOM's based on 2 variables;
                         duration and wattage. In order to establish a foundation for comparison based on 
                         these metrics, this program applies the provided metrics to a model based on the dataset
@@ -61,7 +63,7 @@ function About({darkmode, toggleDarkmode}:SearchProps)
                         >linear regression</a> on the smaller dataset,
                         thus providing a more precise representation of the relative effort than the smaller dataset, 
                         yet not as precise as the dataset making up the powercurve. 
-                    </p>
+                    </Text>
                     <div className={'powercurves subsub'}>
                         <div className="curves">
                             <img className="images" src={process.env.PUBLIC_URL + '/images/absolute_curve.PNG'} 
@@ -75,14 +77,14 @@ function About({darkmode, toggleDarkmode}:SearchProps)
                         </div>
                     </div>
                     
-                    <h3 className={`sub`}>Technical overview</h3>
-                    <p className="subsub bottom">
+                    <Heading as='h3' size='lg' className={`sub`}>Technical overview</Heading>
+                    <Text className="subsub bottom" fontSize='sm'>
                         All code for this program is available in <a 
                         className={`${link} ${dark} ${t}`}
                         href="https://github.com/Anders-Stubberud/KOMpanion/tree/main" target="_blank">this github repo</a>.
                         <br></br>
                         The techstack consists of python on the backend, flask for the API, and react on the frontend.
-                    </p>
+                    </Text>
                 </div>
             </div>
             <br></br><br></br><br></br><br></br>

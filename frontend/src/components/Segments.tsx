@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Text } from '@chakra-ui/react'
 import '../sheets/Segments.css'
 import React from 'react';
 
@@ -23,20 +24,20 @@ function Segments({darkmode, segment_data, index, setChosenSegment}: SearchProps
     return (
         <button className={`segment`} onClick={polylineNewSegment}>
             <div className={`segment_div ${darkm} ${d}`}>
-                <p className={`${dark} ${d}`}><span className='bolds'>Segment name: </span>{segment_data[0].name}</p>
+                <Text className={`${dark} ${d}`}><span className='bolds'>Segment name: </span>{segment_data[0].name}</Text>
                 <div className='spacer'></div>
-                <p className={`${dark} ${d}`}><span className='bolds'>Difficulty: </span>{segment_data[1][0]}% relative power</p>
+                <Text className={`${dark} ${d}`}><span className='bolds'>Difficulty: </span>{segment_data[1][0]}% relative power</Text>
                 <div className='spacer'></div>
-                <p className={`${dark} ${d}`}><span className='bolds'>Effort: </span>
+                <Text className={`${dark} ${d}`}><span className='bolds'>Effort: </span>
                 <span>average </span>
                 {segment_data[1][1][0]}W for {segment_data[1][1][1]} to take the KOM with a 5% time margin
-                </p>
+                </Text>
                 <div className='spacer'></div>
-                <p className={`${dark} ${d}`}><span className='bolds'>Segment link: </span>
+                <Text className={`${dark} ${d}`}><span className='bolds'>Segment link: </span>
                 <a className='linky' href={`https://www.strava.com/segments/${segment_data[0].id}`} target="_blank" rel="noopener noreferrer">
                     {`https://www.strava.com/segments/${segment_data[0].id}`}
                 </a>
-                </p>
+                </Text>
             </div>
         </button>
     );

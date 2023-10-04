@@ -11,6 +11,7 @@ function Loader({darkmode, isLoading, data}:SearchProps)
 {
 
     const dark: string = darkmode ? 'darkmode_loader' : ''
+    const n: string = !darkmode ? 'not_darkmode_loader' : '';
 
     const [loadInfo, setLoadInfo] = useState<number>(0);
 
@@ -40,7 +41,10 @@ function Loader({darkmode, isLoading, data}:SearchProps)
     }, [isLoading])
 
     return (
-        <h3 className={`loader_loader ${dark}`}>{loadArray[loadInfo]}</h3>
+            <div>
+                <p>&nbsp;</p>
+                <h3 className={`loader_loader ${dark} ${n}`}>{loadArray[loadInfo]}</h3>
+            </div>
     );
 }
 

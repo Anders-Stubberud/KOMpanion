@@ -33,3 +33,9 @@
   text-align: center;
   transition: color 0.5s ease;
 }
+.leftalign
+{
+  @media screen and (min-aspect-ratio: 1/1) {
+    text-align: left;
+  }
+}

@@ -1,5 +1,7 @@
 import '../sheets/Search.css';
 import Suggestions from './Suggestions';
+import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 import Loader from './Loader';
 import axios from 'axios';
 import '../index.css'
@@ -185,9 +187,9 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
                     </div>
                 </div>
                 <div className='outer'>
-                    <p className={`transition_search ${dark}`}>
+                    <Text className={`transition_search ${dark}`}>
                         radius
-                    </p>
+                    </Text>
                     <input 
                     type="text" 
                     value={radchange}
@@ -198,9 +200,41 @@ function Search({darkmode, setData, coord, updateCoord, updateChosenSegment, set
                 </div>
                 <div className='outer scuffed'>
                     <p>&nbsp;</p>
-                    <button className="enter" onClick={search}>
+                    {isLoading? 
+                        (
+                        <Button 
+                            isLoading
+                            height={'5vh'} 
+                            display="inline-block" 
+                            paddingLeft={'1'}
+                            paddingRight={'1'}  
+                            m="0"
+                            verticalAlign={'middle'}
+                            colorScheme='whatsapp' 
+                            onClick={search}
+                            variant='solid'>
+                                Search
+                        </Button>
+                        )
+                        :
+                        (
+                        <Button 
+                            height={'5vh'} 
+                            display="inline-block" 
+                            paddingLeft={'1'}
+                            paddingRight={'1'}  
+                            m="0"
+                            verticalAlign={'middle'}
+                            colorScheme='whatsapp' 
+                            onClick={search}
+                            variant='solid'>
+                                Search
+                        </Button>
+                        )
+                    }   
+                    {/* <button className="enter" onClick={search}>
                         <span className={`transition_search ${dark}`}>search</span>
-                    </button>
+                    </button> */}
                 </div>
             </div>
             <Loader darkmode={darkmode} isLoading={isLoading} data={data}></Loader>

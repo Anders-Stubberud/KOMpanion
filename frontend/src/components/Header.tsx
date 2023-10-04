@@ -2,7 +2,9 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 import '../sheets/Header.css';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Heading } from '@chakra-ui/react'
 import { color } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react'
 
 interface SearchProps {
     darkmode: boolean;
@@ -30,9 +32,11 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
             <div className='header'>
                 <div className='intro'>
                     <button onClick={() => handleNavigate(location.pathname, '/')}  
-                    className={`kompanion transition_header ${dark}`}>KOMpanion</button>
+                    className={`kompanion transition_header ${dark}`}>
+                        <Heading as='h3' size='lg'>KOMpanion</Heading>
+                        </button>
                     <div className={`transition_header divide ${dark}`}>
-                        <p>Segment analyzer</p>
+                        <Text fontSize='sm'>Segment analyzer</Text>
                     </div>
                 </div>  
                 <div className='buttons'>
@@ -43,11 +47,8 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
                     />
                     <button onClick={() => handleNavigate(location.pathname, '/about')} 
                         className={`aboutButton ${dark} `}>
-                        <span className={`transition_header ${dark}`}>About</span>
+                        <Text fontSize='md' className={`transition_header ${dark}`}>About</Text>
                     </button>
-                    {/* <button onClick={() => toggleDarkmode()}  className={`darkmodeButton transition_header ${dark}`}>
-                        {mode}
-                    </button> */}
                 </div>  
             </div>
         </div>

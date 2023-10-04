@@ -24,7 +24,7 @@
 .link_about
 {
     text-decoration: underline;
-    color: black;
+    color: #1c1c1d;
 }
 .powercurves
 {
@@ -76,7 +76,7 @@
 }
 .not_darkmode_about
 {
-    color: black;
+    color: #1c1c1d;
     transition: color 0.5s ease;
 }
 /* darkmode */

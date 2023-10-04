@@ -25,7 +25,6 @@
   position: relative;
   border: none;
   font-size: x-large;
-  font-family: monospace;
   font-weight: bold;
 }
 .aboutButton,
@@ -33,7 +32,6 @@
 .kompanion {
   border: none;
   background-color: transparent;
-  font-family: monospace;
   font-size: larger;
 }
 .darkmodeButton {

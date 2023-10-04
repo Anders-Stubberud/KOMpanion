@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Heading } from '@chakra-ui/react'
 import Segments from './Segments';
 import '../sheets/List.css'
 import '../index.css'
@@ -45,18 +46,18 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
                 (
                     (window.innerWidth / window.innerHeight > 1) ? (
                     <Stack paddingTop={1.75} paddingRight={4} spacing={5}>
-                        <Skeleton height='28'>
+                        <Skeleton height='32'>
                         </Skeleton>
                         <Skeleton
                         marginTop={2.75}
                         marginBottom={2.75}
-                        height='28'
+                        height='32'
                         color='grey'
                         fadeDuration={1}
                         >
                         </Skeleton>
                         <Skeleton
-                        height='28'
+                        height='32'
                         fadeDuration={4}
                         color='grey'
                         >
@@ -76,9 +77,12 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
                     )
                 )
             :   (
-                    <h3 className={`transition_potential ${darkm}`}>
+                    <Heading
+                     as='h4' size='md'
+                     className={`transition_potential leftalign ${darkm}`}
+                     >
                         No segments in given bounds
-                    </h3>
+                     </Heading>
                 )
             }
         </div>
