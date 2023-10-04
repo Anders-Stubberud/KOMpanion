@@ -51,6 +51,7 @@
 .linky
 {
     font-size: small;
+    text-decoration: underline;
 }
 /* darkmode */
 .darkmode_segment
