@@ -67,7 +67,7 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
                     (
                         <Skeleton
                         marginTop={3}
-                        // marginBottom={2.75}
+                        borderRadius={28}
                         height='36'
                         color='grey'
                         fadeDuration={1}

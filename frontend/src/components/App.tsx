@@ -1,5 +1,4 @@
 import About from './About'
-import '../sheets/App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Content from './Content';
 import '../index.css'
@@ -13,6 +12,8 @@ function App()
   const [darkmode, setDarkmode] = React.useState(false);
   const toggleDarkmode = () => {
       setDarkmode(!darkmode);
+      const transitionDuration: number = 500;
+      document.body.style.transition = `background-color ${transitionDuration}ms ease-in-out`;
       if (darkmode)
       {
         document.body.style.backgroundColor = 'white';

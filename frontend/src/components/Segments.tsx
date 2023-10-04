@@ -28,6 +28,7 @@ function Segments({darkmode, segment_data, index, setChosenSegment}: SearchProps
                 <p className={`${dark} ${d}`}><span className='bolds'>Difficulty: </span>{segment_data[1][0]}% relative power</p>
                 <div className='spacer'></div>
                 <p className={`${dark} ${d}`}><span className='bolds'>Effort: </span>
+                <span>average </span>
                 {segment_data[1][1][0]}W for {segment_data[1][1][1]} to take the KOM with a 5% time margin
                 </p>
                 <div className='spacer'></div>

@@ -10,20 +10,21 @@ interface SearchProps {
 function About({darkmode, toggleDarkmode}:SearchProps)
 {
 
-    const dark = darkmode ? 'darkmode_about' : '';
+    const dark = darkmode ? 'darkmode_about' : 'not_darkmode_about';
     const link = !darkmode ? 'link_about' : 'link_darkmode';
+    const t = darkmode ? 'transition_about'  : '';
 
     return (
         <div className="main_about">
             <div className="inner_about">
             <Header darkmode={darkmode} toggleDarkmode={toggleDarkmode}></Header>
-                <div className={`content_about ${dark}`}>
+                <div className={`content_about ${dark} ${t}`}>
 
                     <h3 className={`sub`}>Creator</h3>
                     <Text className={`subsub`}>
                         This program is created by Anders Stubberud,
                         an eager cyclist and second year computer science student
-                        at <a className={`${link} ${dark}`} href="https://www.ntnu.edu/" target="_blank">NTNU</a>.
+                        at <a className={`${link} ${dark} ${t}`} href="https://www.ntnu.edu/" target="_blank">NTNU</a>.
                     </Text>
         
                     <h3 className={`sub`}>Limitations in precision</h3>
@@ -47,7 +48,7 @@ function About({darkmode, toggleDarkmode}:SearchProps)
                         of the power curve created by <a
                         href="https://www.cyclinganalytics.com/blog/2018/06/how-does-your-cycling-power-output-compare" 
                         target="_blank"
-                        className={`${link} ${dark}`}
+                        className={`${link} ${dark} ${t}`}
                         >cycling analytics</a>, yielding a relative percentage. 
                         The segments are compared based on this relative percentage. 
                         Cycling analytics does not provide programatically access 
@@ -55,7 +56,7 @@ function About({darkmode, toggleDarkmode}:SearchProps)
                         smaller dataset, which contains the data on selected entries.
                         In an attempt to more precisely replicate the full power curve, the dataset
                         used in this program is created from a <a 
-                        className={`${link} ${dark}`}
+                        className={`${link} ${dark} ${t}`}
                         href="https://github.com/Anders-Stubberud/KOMpanion/blob/main/backend/create_power_curve.py" target="_blank"
                         >linear regression</a> on the smaller dataset,
                         thus providing a more precise representation of the relative effort than the smaller dataset, 
@@ -77,7 +78,7 @@ function About({darkmode, toggleDarkmode}:SearchProps)
                     <h3 className={`sub`}>Technical overview</h3>
                     <p className="subsub bottom">
                         All code for this program is available in <a 
-                        className={`${link} ${dark}`}
+                        className={`${link} ${dark} ${t}`}
                         href="https://github.com/Anders-Stubberud/KOMpanion/tree/main" target="_blank">this github repo</a>.
                         <br></br>
                         The techstack consists of python on the backend, flask for the API, and react on the frontend.

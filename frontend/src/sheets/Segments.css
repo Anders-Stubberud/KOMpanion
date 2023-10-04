@@ -34,8 +34,11 @@
     margin: 2px;
     padding: 0;
     text-align: left;
+    @media screen and (min-aspect-ratio: 1/1) {
+        padding: 0.2vw;
+    }
     @media screen and (max-aspect-ratio: 1/1) {
-        border-radius: 1.5vh;
+        border-radius: 2.5vw;
         padding: 0.5vh;
     }
 }

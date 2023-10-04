@@ -74,13 +74,21 @@
 {
     margin-bottom: 15vh;
 }
+.not_darkmode_about
+{
+    color: black;
+    transition: color 0.5s ease;
+}
 /* darkmode */
 .darkmode_about
 {
     color: #e8e8e8;
-    transition: color 0.5s ease;
 }
 .link_darkmode
 {
     text-decoration: underline;
+}
+.transition_about
+{
+    transition: color 0.5s ease;
 }
