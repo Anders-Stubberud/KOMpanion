@@ -38,9 +38,9 @@ function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: Search
             setPreviousData(data);
           }
           let lineString = undefined;
-          let lineExtent = [-122518, 5683416, 3300212, 8528073];;
+          // let lineExtent = [-122518, 5683416, 3300212, 8528073];
+          let lineExtent = [1712500, 5462138, 1712500, 5462138];
           let coords_render = [2500000, 7500000];
-
           const startMarkerStyle = new Style({
             image: new Circle({
               radius: 7.5,
@@ -98,7 +98,7 @@ function Mapbox({darkmode, data, chosenSegment, coord, setChosenSegment}: Search
           const view = map.getView();
           if (!(! render && data.length!=0)) {
             view.fit(lineExtent, { padding: [10, 10, 10, 10] });
-            view.setZoom(1.5);
+            view.setZoom(6.9);
           }
           else {
             const expansionAmount = 2000; 

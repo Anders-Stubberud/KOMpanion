@@ -11,12 +11,33 @@
 {
     height: 0.5vh;
 }
+.segment
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (max-aspect-ratio: 1/1) {
+        margin-top: 0.5vh;
+        margin-bottom: 0.5vh;
+    }
+}
+.dark_text {
+    transition: color 0.5s ease;
+}
 .segment_div
 {
-    border: 1px solid black;
-    margin: -1px;
+    transition: border-color 0.5s ease;
+    width: 99%;
+    border-radius: 1vw;
+    border: 1px solid #1c1c1d;
+    margin: 2px;
     padding: 0;
     text-align: left;
+    @media screen and (max-aspect-ratio: 1/1) {
+        border-radius: 1.5vh;
+        padding: 0.5vh;
+    }
 }
 .bolds
 {
@@ -27,15 +48,17 @@
 {
     font-weight: bold;
 }
+.linky
+{
+    font-size: small;
+}
 /* darkmode */
 .darkmode_segment
 {
-    border-color: white;
-    color: white;
-    transition: color 0.5s ease;
+    border-color: #e8e8e8;
+    color: #e8e8e8;
 }
 .dark_border
 {
-    border-color: white;
-    transition: border-color 0.5s ease;
+    border-color: #e8e8e8;
 }

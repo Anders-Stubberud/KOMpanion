@@ -28,9 +28,9 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
             scrolly.current.scrollTop = 0;
         }
     }, [data])
-
+    
     return (
-        <div ref={scrolly} className={`listcontainer transition_list ${dark}`}>
+        <div id='scrolldiv' ref={scrolly} className={`listcontainer transition_list ${dark}`}>
             {data.length!=0 ?  
                 (data.map((segment_data, index) => 
                     <Segments 
@@ -43,7 +43,8 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
                 )) 
             :   !active?
                 (
-                    <Stack padding={4} spacing={1} marginTop={4}>
+                    (window.innerWidth / window.innerHeight > 1) ? (
+                    <Stack paddingTop={1.75} paddingRight={4} spacing={5}>
                         <Skeleton height='28'>
                         </Skeleton>
                         <Skeleton
@@ -61,6 +62,18 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
                         >
                         </Skeleton>
                     </Stack>
+                    )
+                    :
+                    (
+                        <Skeleton
+                        marginTop={3}
+                        // marginBottom={2.75}
+                        height='36'
+                        color='grey'
+                        fadeDuration={1}
+                        >
+                        </Skeleton>
+                    )
                 )
             :   (
                     <h3 className={`transition_potential ${darkm}`}>

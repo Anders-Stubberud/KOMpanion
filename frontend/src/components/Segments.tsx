@@ -14,6 +14,7 @@ function Segments({darkmode, segment_data, index, setChosenSegment}: SearchProps
 
     const dark = darkmode ? 'darkmode_segment' : '';
     const darkm = darkmode ? 'dark_border' : '';
+    const d = 'dark_text';
 
     function polylineNewSegment() {
         setChosenSegment(index)
@@ -21,17 +22,17 @@ function Segments({darkmode, segment_data, index, setChosenSegment}: SearchProps
 
     return (
         <button className={`segment`} onClick={polylineNewSegment}>
-            <div className={`segment_div ${darkm}`}>
-                <p className={`${dark}`}><span className='bolds'>Segment name: </span>{segment_data[0].name}</p>
+            <div className={`segment_div ${darkm} ${d}`}>
+                <p className={`${dark} ${d}`}><span className='bolds'>Segment name: </span>{segment_data[0].name}</p>
                 <div className='spacer'></div>
-                <p className={`${dark}`}><span className='bolds'>Difficulty: </span>{segment_data[1][0]}% relative power</p>
+                <p className={`${dark} ${d}`}><span className='bolds'>Difficulty: </span>{segment_data[1][0]}% relative power</p>
                 <div className='spacer'></div>
-                <p className={`${dark}`}><span className='bolds'>Effort: </span>
+                <p className={`${dark} ${d}`}><span className='bolds'>Effort: </span>
                 {segment_data[1][1][0]}W for {segment_data[1][1][1]} to take the KOM with a 5% time margin
                 </p>
                 <div className='spacer'></div>
-                <p className={`${dark}`}><span className='bolds'>Segment link: </span>
-                <a href={`https://www.strava.com/segments/${segment_data[0].id}`} target="_blank" rel="noopener noreferrer">
+                <p className={`${dark} ${d}`}><span className='bolds'>Segment link: </span>
+                <a className='linky' href={`https://www.strava.com/segments/${segment_data[0].id}`} target="_blank" rel="noopener noreferrer">
                     {`https://www.strava.com/segments/${segment_data[0].id}`}
                 </a>
                 </p>

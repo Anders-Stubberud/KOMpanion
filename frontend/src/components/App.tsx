@@ -19,7 +19,7 @@ function App()
       }
       else 
       {
-        document.body.style.backgroundColor = 'black';
+        document.body.style.backgroundColor = "#1c1c1d";
       }
   }
 

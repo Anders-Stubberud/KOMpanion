@@ -1,3 +1,7 @@
+.outer_header
+{
+  margin-top: 2vh;
+}
 .header {
   position: relative;
   display: flex;
@@ -9,7 +13,12 @@
   flex-direction: column;
 }
 .aboutButton {
-  margin-right: 1vw;
+  margin-right: 0;
+  margin-left: 3vw;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
 }
 .change,
 .counter {
@@ -43,8 +52,8 @@
 }
 /* darkmode */
 .darkmode_header {
-  color: white;
-  border-color: white;
+  color: #e8e8e8;
+  border-color: #e8e8e8;
 }
 .transition_header {
   transition: color 0.5s ease, border-color 0.5s ease;

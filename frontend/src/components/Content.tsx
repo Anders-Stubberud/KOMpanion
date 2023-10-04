@@ -28,8 +28,7 @@ function Content({darkmode, toggleDarkmode}:SearchProps) {
     }
 
     const [active, setIsActive] = useState(false);
-
-    const [coord, updateCoord] = useState<number[]|string>([59.907567, 10.759451]);
+    const [coord, updateCoord] = useState<number[]|string>(    [59.907567, 10.759451]);
 
     return (
         <div className="content">

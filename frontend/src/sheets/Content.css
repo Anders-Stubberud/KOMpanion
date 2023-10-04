@@ -2,8 +2,10 @@
 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     flex-grow: 1;
+    min-height: 100vh;
+    overflow-y: scroll;
     margin-bottom: auto;
     align-items: center;
     @media screen and (max-aspect-ratio: 1/1) {

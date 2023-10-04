@@ -1,5 +1,6 @@
 import Header from "./Header";
 import '../sheets/About.css';
+import { Text } from '@chakra-ui/react'
 
 interface SearchProps {
     darkmode: boolean;
@@ -19,11 +20,11 @@ function About({darkmode, toggleDarkmode}:SearchProps)
                 <div className={`content_about ${dark}`}>
 
                     <h3 className={`sub`}>Creator</h3>
-                    <p className={`subsub`}>
+                    <Text className={`subsub`}>
                         This program is created by Anders Stubberud,
                         an eager cyclist and second year computer science student
                         at <a className={`${link} ${dark}`} href="https://www.ntnu.edu/" target="_blank">NTNU</a>.
-                    </p>
+                    </Text>
         
                     <h3 className={`sub`}>Limitations in precision</h3>
                     <h4 className={`sub`}>Estimating wattage</h4>
