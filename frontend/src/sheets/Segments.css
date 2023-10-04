@@ -27,6 +27,7 @@
 }
 .segment_div
 {
+    font-family: roboto;
     transition: border-color 0.5s ease;
     width: 99%;
     border-radius: 1vw;
