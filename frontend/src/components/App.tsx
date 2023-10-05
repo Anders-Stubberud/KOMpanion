@@ -13,7 +13,7 @@ function App()
   const toggleDarkmode = () => {
       setDarkmode(!darkmode);
       const transitionDuration: number = 500;
-      document.body.style.transition = `background-color ${transitionDuration}ms ease-in-out`;
+      document.body.style.transition = `background-color ${transitionDuration}ms ease`;
       if (darkmode)
       {
         document.body.style.backgroundColor = '#ffffff';

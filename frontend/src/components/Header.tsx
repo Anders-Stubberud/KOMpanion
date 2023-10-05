@@ -25,10 +25,10 @@ function Header({darkmode, toggleDarkmode}:SearchProps)
     }
 
     const dark = darkmode ? 'darkmode_header' : '';
-    const mode = darkmode ? 'lightmode' : 'darkmode';
+    const darkheader = darkmode ? 'dark_header' : '';
 
     return (
-        <div className='outer_header'>
+        <div className={`outer_header ${darkheader}`}>
             <div className='header'>
                 <div className='intro'>
                     <button onClick={() => handleNavigate(location.pathname, '/')}  

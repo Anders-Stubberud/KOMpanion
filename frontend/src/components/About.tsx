@@ -28,6 +28,28 @@ function About({darkmode, toggleDarkmode}:SearchProps)
                         an eager cyclist and second year computer science student
                         at <a className={`${link} ${dark} ${t}`} href="https://www.ntnu.edu/" target="_blank">NTNU</a>.
                     </Text>
+
+                    <Heading as='h3' size='lg' className={`sub`}>Functionality</Heading>
+                    <Text className={`subsub`} fontSize='sm'>
+                        The core purpose of KOMpanion is to showcase the most achievable <a 
+                        className={`${link} ${dark} ${t}`} 
+                        href="https://support.strava.com/hc/en-us/articles/216917137-What-s-a-segment-" 
+                        target="_blank">strava segments</a> for a given location.
+                        Briefly explained, strava segments are designated portions of a route where cyclists can 
+                        track their performance and compete with others. Users' activities on segments are timed
+                        and displayed on a public leaderboard, creating a competitive aspect.
+                        Many strava users want to be at the top of the leaderboard of various segments,
+                        earning them the title of the "KOM" of the given segment.
+                        Choosing the path of least resistance is a reasonable choice in this situation,
+                        however, it raises the question of which segment is the most achievable.
+                        This is the question KOMpanion is developed to give a concrete answer to.
+                        <br></br>
+                        Once KOMpanion is provided with a location and a radius, it fetches data on the segments 
+                        within the given area by using the strava API.
+                        From there, a python script assigns each segment a realtive percentage of difficuly
+                        by using the wattage and duration of the current KOM as inputs in a dataset.
+                        Finally, the segments are sorted based on the relative percentage, and displayed to the user.
+                    </Text>
         
                     <Heading as='h3' size='lg' className={`sub`}>Limitations in precision</Heading>
                     <Heading as='h4' size='md' className={`sub`}>Estimating wattage</Heading>

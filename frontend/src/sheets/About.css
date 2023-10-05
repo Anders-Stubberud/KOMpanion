@@ -15,11 +15,14 @@
 }
 .content_about
 {
-    margin-top: 5vh;
+    margin-top: 4vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     text-align: center;
+    @media screen and (max-aspect-ratio: 1/1) {
+        margin-top: 3vh;
+    }
 }
 .link_about
 {

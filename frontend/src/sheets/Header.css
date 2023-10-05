@@ -1,6 +1,12 @@
 .outer_header
 {
-  margin-top: 2vh;
+  position: sticky;
+  top: 0;
+  padding-top: 2vh;
+  padding-bottom: 1vh;
+  background-color: transparent;
+  background-color: white;
+  transition: background-color 0.5s ease;
 }
 .header {
   position: relative;
@@ -49,6 +55,10 @@
   font-weight: bold;
 }
 /* darkmode */
+.dark_header {
+  background-color: #1c1c1d;
+  transition: background-color 0.5s ease;
+}
 .darkmode_header {
   color: #e8e8e8;
   border-color: #e8e8e8;
