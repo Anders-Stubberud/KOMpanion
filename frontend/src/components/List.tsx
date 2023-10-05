@@ -46,7 +46,7 @@ function List({darkmode, data, setChosenSegment, chosenSegment, isLoading, setIs
             :   !active?
                 (
                     (window.innerWidth / window.innerHeight > 1) ? (
-                    <Stack paddingTop={1.75} paddingRight={4} spacing={5}>
+                    <Stack paddingTop={1.75} spacing={5}>
                         <Skeleton height='32'>
                         </Skeleton>
                         <Skeleton
