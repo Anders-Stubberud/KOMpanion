@@ -1,8 +1,8 @@
-# [KOMpanion](https://kom-panion.vercel.app/)
+# KOMpanion
 
 ## Creator
 
-This program is created by Anders Stubberud, an eager cyclist and second-year computer science student at [NTNU](https://www.ntnu.edu/).
+This program is created by Anders Stubberud, an eager cyclist and second-year computer science student at [NTNU](https://www.ntnu.edu/). The program is available at [https://kom-panion.vercel.app/](https://kom-panion.vercel.app/)
 
 ## Limitations in precision
 

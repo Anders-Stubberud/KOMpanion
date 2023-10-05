@@ -46,7 +46,7 @@ function About({darkmode, toggleDarkmode}:SearchProps)
                         <br></br>
                         Once KOMpanion is provided with a location and a radius, it fetches data on the segments 
                         within the given area by using the strava API.
-                        From there, a python script assigns each segment a realtive percentage of difficuly
+                        From there, a python script assigns each segment a relative percentage of difficuly
                         by using the wattage and duration of the current KOM as inputs in a dataset.
                         Finally, the segments are sorted based on the relative percentage, and displayed to the user.
                     </Text>
